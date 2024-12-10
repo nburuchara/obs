@@ -37,6 +37,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 80px;
     // font-family: palatino;
+    color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -131,6 +132,10 @@ export default class LandingPage extends Component {
                                     <div className='carousel-container-call-btns'>
                                         <button>Zoom</button>
                                         <button>Phone Call</button>
+                                    </div>
+                                    <div className=''>
+                                        <p>Zoom: <label></label></p>
+                                        <p>Phone: <label></label></p>
                                     </div>
                                     <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
                                 </div>
