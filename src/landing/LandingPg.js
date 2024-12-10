@@ -87,6 +87,7 @@ const Styles = styled.div  `
     font-size: 77.5%;
     font-weight: normal;
     padding-left: 2.5%;
+    color: #5e626a;
 }
 
 .carousel-container-call-btns button {
@@ -116,7 +117,7 @@ const Styles = styled.div  `
 
 .carousel-container-meeting-details p {
     font-weight: normal;
-    line-height: 1.5;
+    line-height: 1.85;
 }
 
 `
