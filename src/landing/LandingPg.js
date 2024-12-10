@@ -55,13 +55,13 @@ const Styles = styled.div  `
 
 .meetings-carousel {
     width: 65%;
-    border: 1px solid black;
+    // border: 1px solid black;
     overflow-y: scroll;
 }
 
 .meetings-options {
     width: 35%;
-    border: 1px solid black;
+    // border: 1px solid black;
 }
 
 .carousel-container {
@@ -92,6 +92,9 @@ const Styles = styled.div  `
     color: white;
     border: 1px solid  #4497f1;
     border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 2%;
 }
 
 .carousel-container p {
@@ -127,6 +130,7 @@ export default class LandingPage extends Component {
                                     <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
                                     <div className='carousel-container-call-btns'>
                                         <button>Zoom</button>
+                                        <button>Phone Call</button>
                                     </div>
                                     <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
                                 </div>
