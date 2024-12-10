@@ -12,9 +12,55 @@ const Styles = styled.div  `
     position: fixed;
 }
 
-.header {
+    // - - NAVBAR - - //
+
+.navbar {
     height: 10%;
     background-color: #4497f1;
+}
+
+    // - - MAIN SECTION - - //
+
+.main-section {
+   height: 90%;
+    position: relative;
+}
+
+.main-section-header {
+    height: 22.5%;
+    // border: 1px solid black;
+}
+
+    // - MAIN SECTION HEADER - //
+
+.main-section-header h1 {
+    text-align: center;
+    font-size: 80px;
+    // font-family: palatino;
+}
+
+    // - MAIN SECTION BODY - //
+
+.main-section-body {
+    position: absolute;
+    bottom: 0;
+    height: 77.5%;
+    // border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+    // - - MEETINGS CAROUSEL - - //
+
+.meetings-carousel {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.meetings-options {
+    width: 50%;
+    border: 1px solid black;
 }
 
 `
@@ -31,7 +77,21 @@ export default class LandingPage extends Component {
         return (
             <Styles>
                 <div className='full-page'>
-                    <div className='header'>
+                    <div className='navbar'>
+                        
+                    </div>
+                    <div className='main-section'>
+                        <div className='main-section-header'>
+                            <h1>Free Online Bible Study</h1>
+                        </div>
+                        <div className='main-section-body'>
+                            <div className='meetings-carousel'>
+
+                            </div>
+                            <div className='meetings-options'>
+
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
