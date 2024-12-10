@@ -72,6 +72,11 @@ const Styles = styled.div  `
     margin-top: 5%;
 }
 
+.carousel-container label {
+    font-size: 80%;
+    font-weight: normal;
+}
+
 `
 
 export default class LandingPage extends Component {
@@ -96,7 +101,8 @@ export default class LandingPage extends Component {
                         <div className='main-section-body'>
                             <div className='meetings-carousel'>
                                 <div className='carousel-container'>
-
+                                    <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
+                                    
                                 </div>
                             </div>
                             <div className='meetings-options'>
