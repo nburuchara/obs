@@ -56,11 +56,20 @@ const Styles = styled.div  `
 .meetings-carousel {
     width: 50%;
     border: 1px solid black;
+    overflow-y: scroll;
 }
 
 .meetings-options {
     width: 50%;
     border: 1px solid black;
+}
+
+.carousel-container {
+    width: 90%;
+    border: 1px solid #5e6261;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 5%;
 }
 
 `
@@ -86,7 +95,9 @@ export default class LandingPage extends Component {
                         </div>
                         <div className='main-section-body'>
                             <div className='meetings-carousel'>
+                                <div className='carousel-container'>
 
+                                </div>
                             </div>
                             <div className='meetings-options'>
 
