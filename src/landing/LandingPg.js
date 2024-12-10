@@ -75,19 +75,19 @@ const Styles = styled.div  `
     padding-right: 2.5%;
 }
 
-.carousel-container h2 {
-
-}
-
-.carousel-container label {
-    font-size: 77.5%;
-    font-weight: normal;
-    padding-left: 2.5%;
-}
-
 .carousel-container p {
     line-height: 1.5;
     font-size: 101%;
+}
+
+.carousel-container-header h2 {
+
+}
+
+.carousel-container-header label {
+    font-size: 77.5%;
+    font-weight: normal;
+    padding-left: 2.5%;
 }
 
 .carousel-container-call-btns button {
@@ -107,6 +107,11 @@ const Styles = styled.div  `
     font-weight: bolder;
     color: #4497f1;
 } 
+
+.carousel-container-call-details label {
+    font-weight: normal;
+    color: #5e626a;
+}
 
 .carousel-container-meeting-details p {
     font-weight: normal;
@@ -136,13 +141,15 @@ export default class LandingPage extends Component {
                         <div className='main-section-body'>
                             <div className='meetings-carousel'>
                                 <div className='carousel-container'>
-                                    <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
+                                    <div className='carousel-container-header'>
+                                        <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
+                                    </div>
                                     <div className='carousel-container-call-btns'>
                                         <button>Zoom</button>
                                         {/* <button>Phone Call</button> */}
                                     </div>
                                     <div className='carousel-container-call-details'>
-                                        <p>Zoom: <label></label></p>
+                                        <p>Zoom: <label>ID: 865 4264 0439</label></p>
                                         {/* <p>Phone: <label></label></p> */}
                                     </div>
                                     <div className=''>
