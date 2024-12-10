@@ -84,8 +84,9 @@ const Styles = styled.div  `
     padding-left: 2.5%;
 }
 
-.carousel-container h2 {
-
+.carousel-container h3 {
+    line-height: 1.5;
+    font-weight: normal;
 }
 
 `
@@ -113,7 +114,7 @@ export default class LandingPage extends Component {
                             <div className='meetings-carousel'>
                                 <div className='carousel-container'>
                                     <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
-                                    <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
+                                    <h3>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</h3>
                                 </div>
                             </div>
                             <div className='meetings-options'>
