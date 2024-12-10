@@ -111,6 +111,7 @@ const Styles = styled.div  `
 .carousel-container-call-details label {
     font-weight: normal;
     color: #5e626a;
+    padding-left: 2%;
 }
 
 .carousel-container-meeting-details p {
@@ -149,7 +150,7 @@ export default class LandingPage extends Component {
                                         {/* <button>Phone Call</button> */}
                                     </div>
                                     <div className='carousel-container-call-details'>
-                                        <p>Zoom: <label>ID: 865 4264 0439</label></p>
+                                        <p>Zoom: <label>ID: 865 4264 0439</label><label>Password: Divine</label></p>
                                         {/* <p>Phone: <label></label></p> */}
                                     </div>
                                     <div className=''>
