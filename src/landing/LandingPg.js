@@ -37,7 +37,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 80px;
     // font-family: palatino;
-    color: white;
+    color: black;
 }
 
     // - MAIN SECTION BODY - //
@@ -150,7 +150,7 @@ export default class LandingPage extends Component {
                                         {/* <button>Phone Call</button> */}
                                     </div>
                                     <div className='carousel-container-call-details'>
-                                        <p>Zoom: <label>ID: 865 4264 0439</label><label>Password: Divine</label></p>
+                                        <p>Zoom: <label>ID: 865 4264 0439</label> <label>Password: Divine</label></p>
                                         {/* <p>Phone: <label></label></p> */}
                                     </div>
                                     <div className=''>
