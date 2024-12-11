@@ -136,9 +136,7 @@ const Styles = styled.div  `
 }
 
 .carousel-container-all-meetings {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 5%;
+    // margin-bottom: 5%;
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -186,7 +184,36 @@ const Styles = styled.div  `
     margin-top: 17.5px;
 }
 
+.carousel-container-all-meetings-dropdown-img {
+    transition-property: transform;
+}
 
+.carousel-container-all-meetings-dropdown-img.expanded {
+    transform: rotate(180deg);
+}
+
+.expandable {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    max-height: 50px; /* Collapsed height */
+    margin-bottom: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+  
+.expandable.expanded {
+    max-height: 500px; /* Large enough to fit all content */
+    background-color: transparent;
+}
+
+.content {
+    // background-color: #eee;
+    transition: max-height 0.5s ease;
+}
+
+.content.expanded {
+    visibility: hidden;
+}
 
     // - - MEETINGS OPTIONS (RIGHT PAGE) - - // 
 
@@ -199,7 +226,8 @@ const Styles = styled.div  `
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 
-.carousel-container-all-meetings {
+.carousel-container-all-meetings,
+.carousel-container-all-meetings-dropdown-img {
     transition-duration: var(--def-transition-duration);
     transition-timing-function: ease-in-out;
 }
@@ -210,11 +238,18 @@ export default class LandingPage extends Component {
     constructor () {
         super()
         this.state = {
-
+            isExpanded: false,
         }
     }
 
+    toggleExpand = () => {
+        this.setState((prevState) => ({ isExpanded: !prevState.isExpanded }));
+    };
+
     render () {
+
+        const { isExpanded } = this.state;
+
         return (
             <Styles>
                 <div className='full-page'>
@@ -242,15 +277,26 @@ export default class LandingPage extends Component {
                                     <div className='carousel-container-meeting-details'>
                                         <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
                                     </div>
-                                    <div className='carousel-container-all-meetings'>
-                                        <div className='carousel-container-all-meetings-total'>
-                                            <span>8</span>
+                                    <div
+                                    className={`expandable ${isExpanded ? 'expanded' : ''}`}
+                                    onClick={this.toggleExpand}
+                                    style={{backgroundColor: isExpanded ? "#eee" : ""}}
+                                    >
+                                        <div className='carousel-container-all-meetings'>
+                                            <div className='carousel-container-all-meetings-total'>
+                                                <span>8</span>
+                                            </div>
+                                            <div className='carousel-container-all-meetings-label'>
+                                                <p>All meetings</p>
+                                            </div>
+                                            <div className='carousel-container-all-meetings-dropdown'>
+                                                <img className={`carousel-container-all-meetings-dropdown-img ${isExpanded ? 'expanded' : ''}`} src='/assets/icons/dropdown-arrow.png' alt=''/>
+                                            </div>
                                         </div>
-                                        <div className='carousel-container-all-meetings-label'>
-                                            <p>All meetings</p>
-                                        </div>
-                                        <div className='carousel-container-all-meetings-dropdown'>
-                                            <img src='/assets/icons/dropdown-arrow.png' alt=''/>
+                                        <div className={`content ${isExpanded ? '' : 'expanded'}`}>
+                                            <p style={{marginTop: "0px"}}>This is line 1.</p>
+                                            <p>This is line 2.</p>
+                                            <p>This is line 3.</p>
                                         </div>
                                     </div>
                                 </div>
