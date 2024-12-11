@@ -15,19 +15,19 @@ const Styles = styled.div  `
     // - - NAVBAR - - //
 
 .navbar {
-    height: 10%;
+    height: 7%;
     background-color: #4497f1;
 }
 
     // - - MAIN SECTION - - //
 
 .main-section {
-   height: 90%;
+   height: 93%;
     position: relative;
 }
 
 .main-section-header {
-    height: 22.5%;
+    height: 15%;
     // border: 1px solid black;
 }
 
@@ -35,9 +35,9 @@ const Styles = styled.div  `
 
 .main-section-header h1 {
     text-align: center;
-    font-size: 80px;
+    font-size: 60px;
     // font-family: palatino;
-    color: black;
+    color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -45,7 +45,7 @@ const Styles = styled.div  `
 .main-section-body {
     position: absolute;
     bottom: 0;
-    height: 77.5%;
+    height: 85%;
     // border: 1px solid black;
     width: 100%;
     display: flex;
@@ -56,13 +56,10 @@ const Styles = styled.div  `
 
 .meetings-carousel {
     width: 65%;
-    // border: 1px solid black;
-    overflow-y: scroll;
-}
-
-.meetings-options {
-    width: 35%;
-    // border: 1px solid black;
+    position: relative;
+    border-top: 1px solid #ccc;
+    overflow-y: auto;
+    padding-bottom: 5%;
 }
 
 .carousel-container {
@@ -120,6 +117,74 @@ const Styles = styled.div  `
     line-height: 1.85;
 }
 
+.carousel-container-all-meetings {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    transition-property: background-color;
+}
+
+.carousel-container-all-meetings:hover {
+    background-color: #eee;
+}
+
+.carousel-container-all-meetings-total {
+    width: 5%;
+}
+
+.carousel-container-all-meetings-total span {
+    background-color: #bcdcff;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10.5px;
+    // margin-left: 2.5%;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.carousel-container-all-meetings-label {
+    width: 85%;
+}
+
+.carousel-container-all-meetings-label p {
+    
+}
+
+.carousel-container-all-meetings-dropdown {
+    width: 10%;
+    text-align: right;
+    padding-right: 2.5%;
+}
+
+.carousel-container-all-meetings-dropdown img { 
+    width: 15px;
+    margin-top: 17.5px;
+}
+
+
+
+    // - - MEETINGS OPTIONS (RIGHT PAGE) - - // 
+
+.meetings-options {
+    width: 35%;
+    border-top: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+    // - - CSS TRANSITIONS / ANIMATIONS - - //
+
+
+.carousel-container-all-meetings {
+    transition-duration: var(--def-transition-duration);
+    transition-timing-function: ease-in-out;
+}
+
 `
 
 export default class LandingPage extends Component {
@@ -145,7 +210,7 @@ export default class LandingPage extends Component {
                             <div className='meetings-carousel'>
                                 <div className='carousel-container'>
                                     <div className='carousel-container-header'>
-                                        <h2>Tuesday Biblica Meeting<label>Tuesday 6:00 pm</label></h2>
+                                        <h2>Tuesday BB Meeting<label>Tuesday 6:00 pm</label></h2>
                                     </div>
                                     <div className='carousel-container-call-btns'>
                                         <button>Zoom</button>
@@ -158,7 +223,47 @@ export default class LandingPage extends Component {
                                     <div className='carousel-container-meeting-details'>
                                         <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
                                     </div>
+                                    <div className='carousel-container-all-meetings'>
+                                        <div className='carousel-container-all-meetings-total'>
+                                            <span>8</span>
+                                        </div>
+                                        <div className='carousel-container-all-meetings-label'>
+                                            <p>All meetings</p>
+                                        </div>
+                                        <div className='carousel-container-all-meetings-dropdown'>
+                                            <img src='/assets/icons/dropdown-arrow.png' alt=''/>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                {/* <div className='carousel-container'>
+                                    <div className='carousel-container-header'>
+                                        <h2>Tuesday BB Meeting<label>Tuesday 6:00 pm</label></h2>
+                                    </div>
+                                    <div className='carousel-container-call-btns'>
+                                        <button>Zoom</button>
+                                        <button>Phone Call</button>
+                                    </div>
+                                    <div className='carousel-container-call-details'>
+                                        <p>Zoom: <label>ID: 865 4264 0439</label> <label>Password: Divine</label></p>
+                                        <p>Phone: <label>253-215-8782</label> <label>Access Code: 170965</label></p>
+                                    </div>
+                                    <div className='carousel-container-meeting-details'>
+                                        <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
+                                    </div>
+                                    <div className='carousel-container-all-meetings'>
+                                        <div className='carousel-container-all-meetings-total'>
+
+                                        </div>
+                                        <div className='carousel-container-all-meetings-label'>
+                                            <p>See all meetings</p>
+                                        </div>
+                                        <div className='carousel-container-all-meetings-dropdown'>
+                                            
+                                        </div>
+                                    </div>
+                                </div> */}
+
                             </div>
                             <div className='meetings-options'>
 
