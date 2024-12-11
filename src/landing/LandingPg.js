@@ -147,6 +147,7 @@ const Styles = styled.div  `
 
 .carousel-container-all-meetings:hover {
     background-color: #eee;
+    cursor: pointer;
 }
 
 .carousel-container-all-meetings-total {
