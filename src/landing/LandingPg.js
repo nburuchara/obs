@@ -208,11 +208,11 @@ const Styles = styled.div  `
 
 .carousel-container-all-meetings-list {
     // background-color: #eee;
-    transition: max-height 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .carousel-container-all-meetings-list.expanded {
-    visibility: hidden;
+    opacity: 0;
 }
 
     // - - MEETINGS OPTIONS (RIGHT PAGE) - - // 
