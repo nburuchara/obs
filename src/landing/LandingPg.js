@@ -171,6 +171,7 @@ const Styles = styled.div  `
 
 .carousel-container-all-meetings-label p {
     margin-left: 1.5%;
+    font-size: 105%;
 }
 
 .carousel-container-all-meetings-dropdown {
