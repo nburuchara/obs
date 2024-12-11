@@ -68,12 +68,15 @@ const Styles = styled.div  `
     border-radius: 6px;
     margin: auto;
     margin-top: 5%;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
 }
 
 .carousel-container p {
     font-size: 101%;
+}
+
+.carousel-container-header {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 }
 
 .carousel-container-header h2 {
@@ -85,6 +88,11 @@ const Styles = styled.div  `
     font-weight: normal;
     padding-left: 2.5%;
     color: #5e626a;
+}
+
+.carousel-container-call-btns {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 }
 
 .carousel-container-call-btns button {
@@ -100,6 +108,11 @@ const Styles = styled.div  `
     margin-right: 2%;
 }
 
+.carousel-container-call-details {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
 .carousel-container-call-details p {
     font-weight: bolder;
     color: #4497f1;
@@ -110,6 +123,11 @@ const Styles = styled.div  `
     font-weight: normal;
     color: #5e626a;
     padding-left: 2%;
+}
+
+.carousel-container-meeting-details {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 }
 
 .carousel-container-meeting-details p {
@@ -132,7 +150,7 @@ const Styles = styled.div  `
 }
 
 .carousel-container-all-meetings-total {
-    width: 5%;
+    width: 8%;
 }
 
 .carousel-container-all-meetings-total span {
@@ -142,18 +160,18 @@ const Styles = styled.div  `
     padding-bottom: 5px;
     position: absolute;
     bottom: 0;
-    margin-bottom: 10.5px;
-    // margin-left: 2.5%;
+    margin-bottom: 12.5px;
+    margin-left: 2.5%;
     border-radius: 50%;
     font-weight: bold;
 }
 
 .carousel-container-all-meetings-label {
-    width: 85%;
+    width: 82%;
 }
 
 .carousel-container-all-meetings-label p {
-    
+    margin-left: 1.5%;
 }
 
 .carousel-container-all-meetings-dropdown {
