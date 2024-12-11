@@ -206,12 +206,12 @@ const Styles = styled.div  `
     background-color: transparent;
 }
 
-.content {
+.carousel-container-all-meetings-list {
     // background-color: #eee;
     transition: max-height 0.5s ease;
 }
 
-.content.expanded {
+.carousel-container-all-meetings-list.expanded {
     visibility: hidden;
 }
 
@@ -293,7 +293,7 @@ export default class LandingPage extends Component {
                                                 <img className={`carousel-container-all-meetings-dropdown-img ${isExpanded ? 'expanded' : ''}`} src='/assets/icons/dropdown-arrow.png' alt=''/>
                                             </div>
                                         </div>
-                                        <div className={`content ${isExpanded ? '' : 'expanded'}`}>
+                                        <div className={`carousel-container-all-meetings-list ${isExpanded ? '' : 'expanded'}`}>
                                             <p style={{marginTop: "0px"}}>This is line 1.</p>
                                             <p>This is line 2.</p>
                                             <p>This is line 3.</p>
