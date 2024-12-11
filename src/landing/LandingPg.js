@@ -192,7 +192,7 @@ const Styles = styled.div  `
     transform: rotate(180deg);
 }
 
-.expandable {
+.carousel-container-all-meetings-expandable {
     overflow: hidden;
     transition: max-height 0.5s ease;
     max-height: 50px; /* Collapsed height */
@@ -201,7 +201,7 @@ const Styles = styled.div  `
     border-bottom: 1px solid #ccc;
 }
   
-.expandable.expanded {
+.carousel-container-all-meetings-expandable.expanded {
     max-height: 500px; /* Large enough to fit all content */
     background-color: transparent;
 }
@@ -278,7 +278,7 @@ export default class LandingPage extends Component {
                                         <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
                                     </div>
                                     <div
-                                    className={`expandable ${isExpanded ? 'expanded' : ''}`}
+                                    className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
                                     onClick={this.toggleExpand}
                                     style={{backgroundColor: isExpanded ? "#eee" : ""}}
                                     >
