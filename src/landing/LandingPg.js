@@ -70,6 +70,7 @@ const Styles = styled.div  `
     margin: auto;
     margin-top: 5%;
     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
 }
 
 .carousel-container p {
@@ -233,6 +234,7 @@ const Styles = styled.div  `
 .meetings-options {
     width: 35%;
     border-top: 1px solid #ccc;
+    border: 1px solid black;
     overflow-y: auto;
 }
 
@@ -318,37 +320,13 @@ export default class LandingPage extends Component {
                                     </div>
                                 </div>
 
-                                {/* <div className='carousel-container'>
-                                    <div className='carousel-container-header'>
-                                        <h2>Tuesday BB Meeting<label>Tuesday 6:00 pm</label></h2>
-                                    </div>
-                                    <div className='carousel-container-call-btns'>
-                                        <button>Zoom</button>
-                                        <button>Phone Call</button>
-                                    </div>
-                                    <div className='carousel-container-call-details'>
-                                        <p>Zoom: <label>ID: 865 4264 0439</label> <label>Password: Divine</label></p>
-                                        <p>Phone: <label>253-215-8782</label> <label>Access Code: 170965</label></p>
-                                    </div>
-                                    <div className='carousel-container-meeting-details'>
-                                        <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
-                                    </div>
-                                    <div className='carousel-container-all-meetings'>
-                                        <div className='carousel-container-all-meetings-total'>
-
-                                        </div>
-                                        <div className='carousel-container-all-meetings-label'>
-                                            <p>See all meetings</p>
-                                        </div>
-                                        <div className='carousel-container-all-meetings-dropdown'>
-                                            
-                                        </div>
-                                    </div>
-                                </div> */}
-
                             </div>
                             <div className='meetings-options'>
-
+                                <div className='meetings-options-header'>
+                                    <div className='meetings-options-search-bar'>
+                                        <div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
