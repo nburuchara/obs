@@ -35,9 +35,9 @@ const Styles = styled.div  `
 
 .main-section-header h1 {
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -290,10 +290,9 @@ export default class LandingPage extends Component {
                                     </div>
                                     <div
                                     className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
-                                    onClick={this.toggleExpand}
                                     style={{backgroundColor: isExpanded ? "#f8fafc" : ""}}
                                     >
-                                        <div className='carousel-container-all-meetings'>
+                                        <div onClick={this.toggleExpand} className='carousel-container-all-meetings'>
                                             <div className='carousel-container-all-meetings-total'>
                                                 <span>3</span>
                                             </div>
