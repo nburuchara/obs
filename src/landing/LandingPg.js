@@ -50,6 +50,7 @@ const Styles = styled.div  `
     width: 100%;
     display: flex;
     justify-content: space-between;
+    background-color: #f8fafc;
 }
 
     // - - MEETINGS CAROUSEL - - //
@@ -57,17 +58,18 @@ const Styles = styled.div  `
 .meetings-carousel {
     width: 65%;
     position: relative;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #cbd5e0;
     overflow-y: auto;
     padding-bottom: 5%;
 }
 
 .carousel-container {
     width: 90%;
-    border: 1px solid #5e6261;
+    border: 1px solid #cbd5e0;
     border-radius: 6px;
     margin: auto;
     margin-top: 5%;
+    background-color: white;
 }
 
 .carousel-container p {
@@ -198,13 +200,13 @@ const Styles = styled.div  `
     transition: max-height 0.5s ease;
     max-height: 52.5px; /* Collapsed height */
     margin-bottom: 50px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #cbd5e0;
+    border-bottom: 1px solid #cbd5e0;
 }
   
 .carousel-container-all-meetings-expandable.expanded {
     max-height: 500px; /* Large enough to fit all content */
-    background-color: transparent;
+    background-color: #f8fafc;
 }
 
 .carousel-container-all-meetings-list {
@@ -223,7 +225,7 @@ const Styles = styled.div  `
 }
 
 .carousel-container-all-meetings-list-cell {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #cbd5e0;
 }
 
     // - - MEETINGS OPTIONS (RIGHT PAGE) - - // 
@@ -290,7 +292,6 @@ export default class LandingPage extends Component {
                                     </div>
                                     <div
                                     className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
-                                    style={{backgroundColor: isExpanded ? "#f8fafc" : ""}}
                                     >
                                         <div onClick={this.toggleExpand} className='carousel-container-all-meetings'>
                                             <div className='carousel-container-all-meetings-total'>
