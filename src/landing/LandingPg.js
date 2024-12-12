@@ -144,7 +144,7 @@ const Styles = styled.div  `
 }
 
 .carousel-container-all-meetings:hover {
-    background-color: #eee;
+    background-color: #f8fafc;
     cursor: pointer;
 }
 
@@ -208,12 +208,22 @@ const Styles = styled.div  `
 }
 
 .carousel-container-all-meetings-list {
-    // background-color: #eee;
+    // background-color: #f8fafc;
     transition: opacity 0.5s ease;
 }
 
 .carousel-container-all-meetings-list.expanded {
     opacity: 0;
+}
+
+.carousel-container-all-meetings-list p {
+    margin-left: 2.5%;
+    line-height: 1;
+    font-size: 105%;
+}
+
+.carousel-container-all-meetings-list-cell {
+    border-top: 1px solid #ccc;
 }
 
     // - - MEETINGS OPTIONS (RIGHT PAGE) - - // 
@@ -281,23 +291,29 @@ export default class LandingPage extends Component {
                                     <div
                                     className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
                                     onClick={this.toggleExpand}
-                                    style={{backgroundColor: isExpanded ? "#eee" : ""}}
+                                    style={{backgroundColor: isExpanded ? "#f8fafc" : ""}}
                                     >
                                         <div className='carousel-container-all-meetings'>
                                             <div className='carousel-container-all-meetings-total'>
                                                 <span>8</span>
                                             </div>
                                             <div className='carousel-container-all-meetings-label'>
-                                                <p>All meetings</p>
+                                                <p>All meeting times</p>
                                             </div>
                                             <div className='carousel-container-all-meetings-dropdown'>
                                                 <img className={`carousel-container-all-meetings-dropdown-img ${isExpanded ? 'expanded' : ''}`} src='/assets/icons/dropdown-arrow.png' alt=''/>
                                             </div>
                                         </div>
                                         <div className={`carousel-container-all-meetings-list ${isExpanded ? '' : 'expanded'}`}>
-                                            <p style={{marginTop: "0px"}}>This is line 1.</p>
-                                            <p>This is line 2.</p>
-                                            <p>This is line 3.</p>
+                                            <div className='carousel-container-all-meetings-list-cell'>
+                                                <p>Wednesday 6:00 pm</p>
+                                            </div>
+                                            <div className='carousel-container-all-meetings-list-cell'>
+                                                <p>Thursday 6:00 pm</p>
+                                            </div>
+                                            <div className='carousel-container-all-meetings-list-cell'>
+                                                <p>Friday 6:00 pm</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
