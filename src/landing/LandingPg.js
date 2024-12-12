@@ -196,7 +196,7 @@ const Styles = styled.div  `
 .carousel-container-all-meetings-expandable {
     overflow: hidden;
     transition: max-height 0.5s ease;
-    max-height: 50px; /* Collapsed height */
+    max-height: 52.5px; /* Collapsed height */
     margin-bottom: 50px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
