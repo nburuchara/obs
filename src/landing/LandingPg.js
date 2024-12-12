@@ -295,7 +295,7 @@ export default class LandingPage extends Component {
                                     >
                                         <div className='carousel-container-all-meetings'>
                                             <div className='carousel-container-all-meetings-total'>
-                                                <span>8</span>
+                                                <span>3</span>
                                             </div>
                                             <div className='carousel-container-all-meetings-label'>
                                                 <p>All meeting times</p>
