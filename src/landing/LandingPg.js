@@ -37,7 +37,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 60px;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
     // - MAIN SECTION BODY - //
