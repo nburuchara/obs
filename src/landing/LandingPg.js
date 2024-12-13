@@ -253,10 +253,11 @@ const Styles = styled.div  `
     width: 65%;
     border: 1px solid #ccc;
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .meetings-options-search-bar-icon {
-    width: 10%;
+    width: 11.5%;
     // border: 1px solid black;
     text-align: center;
     background-color: white;
@@ -264,20 +265,20 @@ const Styles = styled.div  `
 }
 
 .meetings-options-search-bar-icon img {
-    width: 65%;
-    margin-top: 9px;
+    width: 48%;
+    margin-top: 10.5px;
 }
 
 .meetings-options-search-bar-input {
-    width: 90%;
+    width: 88.5%;
     // border: 1px solid black;
 }
 
 .meetings-options-search-bar-input input {
     width: 98%;
-    height: 87%;
+    height: 90.5%;
     padding-left: 0.5%;
-    font-size: 105%;
+    font-size: 100%;
     border: 1px solid transparent;
     border-radius: 5px;
     outline: none;
@@ -374,7 +375,7 @@ export default class LandingPage extends Component {
                                         </div>
                                         <div className='meetings-options-search-bar-input'>
                                             <input
-
+                                            placeholder='Search...'
                                             />
                                         </div>
                                     </div>
