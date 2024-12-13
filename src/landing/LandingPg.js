@@ -322,7 +322,8 @@ export default class LandingPage extends Component {
         super()
         this.state = {
             isExpanded: false,
-            searchBarIsClicked: false
+            searchBarIsClicked: false,
+            searchBarInput: '',
         }
 
         this.searchBarRef = React.createRef();
@@ -432,6 +433,7 @@ export default class LandingPage extends Component {
                                             <input
                                             onClick={this.searchBarClicked}
                                             placeholder='Search...'
+                                            value={this.state.searchBarInput}
                                             />
                                         </div>
                                         <div className='meetings-options-search-bar-close-icon'>
