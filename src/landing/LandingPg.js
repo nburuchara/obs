@@ -324,6 +324,18 @@ export default class LandingPage extends Component {
             isExpanded: false,
             searchBarIsClicked: false
         }
+
+        this.searchBarRef = React.createRef();
+    }
+
+    componentDidMount() {
+        // Add a click event listener to the document
+        document.addEventListener('click', this.handleOutsideSearchBarClick);
+    }
+
+    componentWillUnmount() {
+        // Remove the click event listener to prevent memory leaks
+        document.removeEventListener('click', this.handleOutsideSearchBarClick);
     }
 
     toggleExpand = () => {
@@ -335,6 +347,18 @@ export default class LandingPage extends Component {
             searchBarIsClicked: true
         })
     }
+
+    handleOutsideSearchBarClick = (event) => {
+        // Check if the click is outside the search bar
+        if (
+            this.searchBarRef.current && 
+            !this.searchBarRef.current.contains(event.target)
+        ) {
+            this.setState({
+                searchBarIsClicked: false,
+            });
+        }
+    };
 
     render () {
 
@@ -398,7 +422,9 @@ export default class LandingPage extends Component {
                             </div>
                             <div className='meetings-options'>
                                 <div className='meetings-options-header'>
-                                    <div className={`meetings-options-search-bar ${searchBarIsClicked ? 'clicked' : ''}`}>
+                                    <div 
+                                    ref={this.searchBarRef}
+                                    className={`meetings-options-search-bar ${searchBarIsClicked ? 'clicked' : ''}`}>
                                         <div className='meetings-options-search-bar-icon'>
                                             <img src='/assets/icons/search-icon.png' alt=''/>
                                         </div>
