@@ -37,7 +37,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 40px;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -254,6 +254,11 @@ const Styles = styled.div  `
     border: 1px solid #ccc;
     border-radius: 6px;
     overflow: hidden;
+    transition-property: border;
+}
+
+.meetings-options-search-bar.clicked {
+    border: 1px solid #0078D7;
 }
 
 .meetings-options-search-bar-icon {
@@ -304,7 +309,8 @@ const Styles = styled.div  `
 
 
 .carousel-container-all-meetings,
-.carousel-container-all-meetings-dropdown-img {
+.carousel-container-all-meetings-dropdown-img,
+.meetings-options-search-bar {
     transition-duration: var(--def-transition-duration);
     transition-timing-function: ease-in-out;
 }
@@ -316,6 +322,7 @@ export default class LandingPage extends Component {
         super()
         this.state = {
             isExpanded: false,
+            searchBarIsClicked: false
         }
     }
 
@@ -323,9 +330,15 @@ export default class LandingPage extends Component {
         this.setState((prevState) => ({ isExpanded: !prevState.isExpanded }));
     };
 
+    searchBarClicked = () => {
+        this.setState({
+            searchBarIsClicked: true
+        })
+    }
+
     render () {
 
-        const { isExpanded } = this.state;
+        const { isExpanded, searchBarIsClicked } = this.state;
 
         return (
             <Styles>
@@ -385,12 +398,13 @@ export default class LandingPage extends Component {
                             </div>
                             <div className='meetings-options'>
                                 <div className='meetings-options-header'>
-                                    <div className='meetings-options-search-bar'>
+                                    <div className={`meetings-options-search-bar ${searchBarIsClicked ? 'clicked' : ''}`}>
                                         <div className='meetings-options-search-bar-icon'>
                                             <img src='/assets/icons/search-icon.png' alt=''/>
                                         </div>
                                         <div className='meetings-options-search-bar-input'>
                                             <input
+                                            onClick={this.searchBarClicked}
                                             placeholder='Search...'
                                             />
                                         </div>
