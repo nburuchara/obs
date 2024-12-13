@@ -41,7 +41,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 40px;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -393,9 +393,13 @@ export default class LandingPage extends Component {
         document.removeEventListener('click', this.handleOutsideSearchBarClick);
     }
 
+    //! - - EXPAND SELECTED 'ALL MEETINGS' TAB - - !//
+
     toggleExpand = () => {
         this.setState((prevState) => ({ isExpanded: !prevState.isExpanded }));
     };
+
+    //! - - SEARCH FUNCTIONS - - !//
 
     searchBarClicked = () => {
         this.setState({
@@ -415,8 +419,6 @@ export default class LandingPage extends Component {
         }
     };
 
-    //! - - SEARCH FUNCTIONS - - !//
-
     groupBy = (array, key) => {
         return array.reduce((result, currentValue) => {
             (result[currentValue[key]] = result[currentValue[key]] || []).push(currentValue);
@@ -427,8 +429,9 @@ export default class LandingPage extends Component {
     handleSearchChange = (e) => {
         const { searchFilterTitle, searchFilterSelected, menuOption1, menuOption2, menuOption3, menuOption4 } = this.state; 
         let { currentSectionSearching } = this.state;
+
         this.setState({
-            searchedData: e.target.value,
+            searchBarInput: e.target.value,
             isSearchLoading: true,
             clearSearchBtn: true,
             showDocsPopupHomescreen: false
@@ -454,7 +457,6 @@ export default class LandingPage extends Component {
                 });
 
             } else {
-
                 this.setState({ isSearchLoading: true, searchedData: searchInput, searchCloseBtn: true }, () => {
                     const filteredOptions = SearchTerms.filter(option => {
                         const name = option.name.toLowerCase();
@@ -528,6 +530,8 @@ export default class LandingPage extends Component {
         }
     }
 
+
+
     render () {
 
         const { isExpanded, searchBarIsClicked } = this.state;
@@ -598,13 +602,15 @@ export default class LandingPage extends Component {
                                         </div>
                                         <div className='meetings-options-search-bar-input'>
                                             <input
+                                            id='searchBarInput'
                                             onClick={this.searchBarClicked}
                                             placeholder='Search...'
                                             value={this.state.searchBarInput}
+                                            onChange={this.handleSearchChange}
                                             />
                                         </div>
                                         <div className='meetings-options-search-bar-close-icon'>
-                                            <img src='/assets/icons/search-icon-close.png' alt=''/>
+                                            {this.state.clearSearchBtn && <img src='/assets/icons/search-icon-close.png' alt=''/>}
                                         </div>
                                     </div>
                                 </div>
