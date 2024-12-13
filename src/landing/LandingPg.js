@@ -234,8 +234,53 @@ const Styles = styled.div  `
 .meetings-options {
     width: 35%;
     border-top: 1px solid #ccc;
-    border: 1px solid black;
+    // border: 1px solid black;
     overflow-y: auto;
+}
+
+    // - - SEARCH BAR - - //
+
+.meetings-options-header {
+    height: 10%;
+    // border: 1px solid black;
+    margin-top: 10%;
+}
+
+.meetings-options-search-bar {
+    display: flex;
+    justify-content: space-between;
+    height: 60%;
+    width: 65%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.meetings-options-search-bar-icon {
+    width: 10%;
+    // border: 1px solid black;
+    text-align: center;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.meetings-options-search-bar-icon img {
+    width: 65%;
+    margin-top: 9px;
+}
+
+.meetings-options-search-bar-input {
+    width: 90%;
+    // border: 1px solid black;
+}
+
+.meetings-options-search-bar-input input {
+    width: 98%;
+    height: 87%;
+    padding-left: 0.5%;
+    font-size: 105%;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: none;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -324,8 +369,13 @@ export default class LandingPage extends Component {
                             <div className='meetings-options'>
                                 <div className='meetings-options-header'>
                                     <div className='meetings-options-search-bar'>
-                                        <div>
+                                        <div className='meetings-options-search-bar-icon'>
+                                            <img src='/assets/icons/search-icon.png' alt=''/>
+                                        </div>
+                                        <div className='meetings-options-search-bar-input'>
+                                            <input
 
+                                            />
                                         </div>
                                     </div>
                                 </div>
