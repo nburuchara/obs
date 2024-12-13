@@ -2,6 +2,10 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
+//? - - FILES - - //
+import SearchTerms from '../meetings/MeetingsFile.js'
+
+//? - - CSS - - //
 const Styles = styled.div  `
 
     // - - FULL PAGE - - //
@@ -372,7 +376,10 @@ export default class LandingPage extends Component {
             searchBarIsClicked: false,
             searchBarInput: '',
         }
+            //* - TRIE NODE (for search functionality) - *//
+        this.trie = new Trie(); // Initialize the trie
 
+            //* - SEARCH BAR REFERENCE - *//
         this.searchBarRef = React.createRef();
     }
 
@@ -407,6 +414,119 @@ export default class LandingPage extends Component {
             });
         }
     };
+
+    //! - - SEARCH FUNCTIONS - - !//
+
+    groupBy = (array, key) => {
+        return array.reduce((result, currentValue) => {
+            (result[currentValue[key]] = result[currentValue[key]] || []).push(currentValue);
+            return result;
+        }, {});
+    }
+
+    handleSearchChange = (e) => {
+        const { searchFilterTitle, searchFilterSelected, menuOption1, menuOption2, menuOption3, menuOption4 } = this.state; 
+        let { currentSectionSearching } = this.state;
+        this.setState({
+            searchedData: e.target.value,
+            isSearchLoading: true,
+            clearSearchBtn: true,
+            showDocsPopupHomescreen: false
+        });
+        
+        const searchInput = e.target.value.toLowerCase();
+        
+        // Clear previous timeout
+    
+    
+        // Set a new timeout to execute after 500ms
+        this.searchTimeout = setTimeout(() => {
+            if (searchInput.trim() === "") {
+                // Reset filteredOptions and loading state
+                this.setState({
+                    searchedData: "",
+                    searchCloseBtn: false,
+                    filteredOptions: [],
+                    isSearchLoading: false,
+                    resultsFound: false,
+                    showDocsPopupHomescreen: true,
+                    clearSearchBtn: false
+                });
+
+            } else {
+
+                this.setState({ isSearchLoading: true, searchedData: searchInput, searchCloseBtn: true }, () => {
+                    const filteredOptions = SearchTerms.filter(option => {
+                        const name = option.name.toLowerCase();
+                        const searchWords = searchInput.toLowerCase().split(' '); // Split search input into words
+                        const optionWords = name.split(' '); // Split name into words
+                    
+                        if (searchWords.length === 1) {
+                            // Special case: search input is a single word
+                            const searchWord = searchWords[0];
+                            return optionWords.some(optionWord => optionWord.startsWith(searchWord));
+                        } else {
+                            // Combine search words into a single substring
+                            const searchSubstring = searchWords.join(' ');
+                            return name.includes(searchSubstring);
+                        }
+                    });
+    
+                    const resultsFound = filteredOptions.length > 0; // Check if any results were found
+    
+                    const highlightedOptions = filteredOptions.map(option => ({
+                        ...option,
+                        highlightedName: this.highlightMatchedCharacters(option, searchInput)
+                    }));
+    
+                    const groupedResults = this.groupBy(highlightedOptions, 'category');
+    
+                    // Construct trie for each category
+                    const trieByCategory = {};
+                    Object.entries(groupedResults).forEach(([category, options]) => {
+                        trieByCategory[category] = new Trie();
+                        options.forEach(option => {
+                            trieByCategory[category].insert(option.name.toLowerCase());
+                        });
+                    });
+    
+                    // Update state after search logic is complete
+                    this.setState({
+                        trieByCategory,
+                        groupedOptions: groupedResults,
+                        filteredOptions: highlightedOptions,
+                        isSearchLoading: false, // Hide loading screen
+                        resultsFound: resultsFound
+                    });
+                });
+            }
+        }, 0); // Set debounce delay to 500ms
+    };
+
+    highlightMatchedCharacters(option, searchInput, isSearchLoading) {
+        const name = option.name.toLowerCase();
+        const searchRegex = new RegExp(`\\b${searchInput}`, 'i');
+        const match = name.match(searchRegex);
+        
+        if (!isSearchLoading && searchInput && match) {
+            // Match found and search input is not empty and not loading
+            const startIndex = match.index;
+            const endIndex = startIndex + searchInput.length;
+            const highlightedName = (
+                <span>
+                    {option.name.substring(0, startIndex)}
+                    <span style={{ fontWeight: "bold", color: "#2890B9" }}>
+                        {option.name.substring(startIndex, endIndex)}
+                    </span>
+                    {option.name.substring(endIndex)}
+                </span>
+            );
+            return highlightedName;
+        } else {
+            // No match found or search input is empty or loading
+            return option.name;
+        }
+    }
 
     render () {
 
