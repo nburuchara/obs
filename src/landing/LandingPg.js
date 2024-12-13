@@ -530,7 +530,12 @@ export default class LandingPage extends Component {
         }
     }
 
-
+    clearSearchBar = () => {
+        this.setState({
+            searchBarInput: '',
+            clearSearchBtn: false
+        })
+    }
 
     render () {
 
@@ -610,7 +615,7 @@ export default class LandingPage extends Component {
                                             />
                                         </div>
                                         <div className='meetings-options-search-bar-close-icon'>
-                                            {this.state.clearSearchBtn && <img src='/assets/icons/search-icon-close.png' alt=''/>}
+                                            {this.state.clearSearchBtn && <img onClick={this.clearSearchBar} src='/assets/icons/search-icon-close.png' alt=''/>}
                                         </div>
                                     </div>
                                 </div>
