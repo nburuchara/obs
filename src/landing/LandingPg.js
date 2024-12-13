@@ -70,7 +70,7 @@ const Styles = styled.div  `
     margin: auto;
     margin-top: 5%;
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .carousel-container p {
@@ -324,7 +324,9 @@ export default class LandingPage extends Component {
                             <div className='meetings-options'>
                                 <div className='meetings-options-header'>
                                     <div className='meetings-options-search-bar'>
-                                        <div></div>
+                                        <div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
