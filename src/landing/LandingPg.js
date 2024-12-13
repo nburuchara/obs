@@ -243,7 +243,7 @@ const Styles = styled.div  `
 .meetings-options-header {
     height: 10%;
     // border: 1px solid black;
-    margin-top: 10%;
+    margin-top: 9.5%;
 }
 
 .meetings-options-search-bar {
@@ -270,18 +270,34 @@ const Styles = styled.div  `
 }
 
 .meetings-options-search-bar-input {
-    width: 88.5%;
+    width: 80.5%;
     // border: 1px solid black;
+    background-color: white;
 }
 
 .meetings-options-search-bar-input input {
     width: 98%;
-    height: 90.5%;
+    height: 92.5%;
     padding-left: 0.5%;
     font-size: 100%;
     border: 1px solid transparent;
-    border-radius: 5px;
+    background-color: transparent;
     outline: none;
+}
+
+.meetings-options-search-bar-close-icon {
+    width: 8%;
+    // border: 1px solid black;
+    text-align: left;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.meetings-options-search-bar-close-icon img {
+    width: 65%;
+    margin-top: 10.5px;
+    margin-left: 5%;
+    cursor: pointer;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -377,6 +393,9 @@ export default class LandingPage extends Component {
                                             <input
                                             placeholder='Search...'
                                             />
+                                        </div>
+                                        <div className='meetings-options-search-bar-close-icon'>
+                                            <img src='/assets/icons/search-icon-close.png' alt=''/>
                                         </div>
                                     </div>
                                 </div>
