@@ -1,6 +1,5 @@
 const results = [
 
-    
     {"id": "998573", "name": "All Apps", "category": "Apps", "page": "Event types", "lastCat": "top"},
     {"id": "998573", "name": "AI Avatars", "category": "Apps", "subCat1": "Tools", "page": "Event types", "lastCat": "top"},
     {"id": "998573", "name": "AI Brainstorm", "category": "Apps", "subCat1": "Tools", "page": "Event types", "lastCat": "top"},
