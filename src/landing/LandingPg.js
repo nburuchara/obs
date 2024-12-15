@@ -537,9 +537,59 @@ export default class LandingPage extends Component {
         })
     }
 
+    renderCurrentMeetings = () => {
+
+        const { isExpanded } = this.state;
+
+        return (
+            <div className='carousel-container'>
+                <div className='carousel-container-header'>
+                    <h2>Tuesday BB Meeting<label>Tuesday 6:00 pm</label></h2>
+                </div>
+                <div className='carousel-container-call-btns'>
+                    <button>Zoom</button>
+                    <button>Phone Call</button>
+                </div>
+                <div className='carousel-container-call-details'>
+                    <p>Zoom: <label>ID: 865 4264 0439</label> <label>Password: Divine</label></p>
+                    <p>Phone: <label>253-215-8782</label> <label>Access Code: 170965</label></p>
+                </div>
+                <div className='carousel-container-meeting-details'>
+                    <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
+                </div>
+                <div
+                className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
+                >
+                    <div onClick={this.toggleExpand} className='carousel-container-all-meetings'>
+                        <div className='carousel-container-all-meetings-total'>
+                            <span>3</span>
+                        </div>
+                        <div className='carousel-container-all-meetings-label'>
+                            <p>All meeting times</p>
+                        </div>
+                        <div className='carousel-container-all-meetings-dropdown'>
+                            <img className={`carousel-container-all-meetings-dropdown-img ${isExpanded ? 'expanded' : ''}`} src='/assets/icons/dropdown-arrow.png' alt=''/>
+                        </div>
+                    </div>
+                    <div className={`carousel-container-all-meetings-list ${isExpanded ? '' : 'expanded'}`}>
+                        <div className='carousel-container-all-meetings-list-cell'>
+                            <p>Wednesday 6:00 pm</p>
+                        </div>
+                        <div className='carousel-container-all-meetings-list-cell'>
+                            <p>Thursday 6:00 pm</p>
+                        </div>
+                        <div className='carousel-container-all-meetings-list-cell'>
+                            <p>Friday 6:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     render () {
 
-        const { isExpanded, searchBarIsClicked } = this.state;
+        const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
 
         return (
             <Styles>
@@ -553,49 +603,7 @@ export default class LandingPage extends Component {
                         </div>
                         <div className='main-section-body'>
                             <div className='meetings-carousel'>
-                                <div className='carousel-container'>
-                                    <div className='carousel-container-header'>
-                                        <h2>Tuesday BB Meeting<label>Tuesday 6:00 pm</label></h2>
-                                    </div>
-                                    <div className='carousel-container-call-btns'>
-                                        <button>Zoom</button>
-                                        <button>Phone Call</button>
-                                    </div>
-                                    <div className='carousel-container-call-details'>
-                                        <p>Zoom: <label>ID: 865 4264 0439</label> <label>Password: Divine</label></p>
-                                        <p>Phone: <label>253-215-8782</label> <label>Access Code: 170965</label></p>
-                                    </div>
-                                    <div className='carousel-container-meeting-details'>
-                                        <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
-                                    </div>
-                                    <div
-                                    className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
-                                    >
-                                        <div onClick={this.toggleExpand} className='carousel-container-all-meetings'>
-                                            <div className='carousel-container-all-meetings-total'>
-                                                <span>3</span>
-                                            </div>
-                                            <div className='carousel-container-all-meetings-label'>
-                                                <p>All meeting times</p>
-                                            </div>
-                                            <div className='carousel-container-all-meetings-dropdown'>
-                                                <img className={`carousel-container-all-meetings-dropdown-img ${isExpanded ? 'expanded' : ''}`} src='/assets/icons/dropdown-arrow.png' alt=''/>
-                                            </div>
-                                        </div>
-                                        <div className={`carousel-container-all-meetings-list ${isExpanded ? '' : 'expanded'}`}>
-                                            <div className='carousel-container-all-meetings-list-cell'>
-                                                <p>Wednesday 6:00 pm</p>
-                                            </div>
-                                            <div className='carousel-container-all-meetings-list-cell'>
-                                                <p>Thursday 6:00 pm</p>
-                                            </div>
-                                            <div className='carousel-container-all-meetings-list-cell'>
-                                                <p>Friday 6:00 pm</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {this.renderCurrentMeetings()}
                             </div>
                             <div className='meetings-options'>
                                 <div className='meetings-options-header'>
@@ -618,6 +626,35 @@ export default class LandingPage extends Component {
                                             {this.state.clearSearchBtn && <img onClick={this.clearSearchBar} src='/assets/icons/search-icon-close.png' alt=''/>}
                                         </div>
                                     </div>
+                                    {searchInput !== "" && (
+                                        <div style={{width: this.state.leftPaneMinimized ? "47%" : ""}} className='searchResults'>
+                                            {isSearchLoading && 
+                                                <div>
+                                                    <p>Loading...</p>
+                                                </div>
+                                            }
+                                            {!isSearchLoading && resultsFound && 
+                                                Object.entries(groupedOptions).map(([category, options]) => (
+                                                    <div style={{borderBottom: "1px solid #ccc", paddingTop: "1.2%", paddingBottom: "1.2%", position: "sticky"}} key={category}>
+                                                        {options.map(option => (
+                                                            <div 
+                                                            onClick={() => this.searchedTermClicked(category, option, option.page)}
+                                                            className='searchResultCell' 
+                                                            key={option.id}>
+                                                                <p className='searchResultOption'>{option.highlightedName}</p>
+                                                                <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'>'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat4}</label> : null } </p> 
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                ))
+                                            }
+                                            {!isSearchLoading && !resultsFound && 
+                                                <div style={{textAlign: "center"}}>
+                                                    <p style={{fontFamily: "dm sans", fontWeight: "bold", marginTop: "4.25%", color: "#2890b9"}}>No results found</p>
+                                                </div>
+                                            }
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
