@@ -309,6 +309,10 @@ const Styles = styled.div  `
     cursor: pointer;
 }
 
+.searchResults {
+    border: 1px solid black;
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 
@@ -627,7 +631,7 @@ export default class LandingPage extends Component {
                                         </div>
                                     </div>
                                     {searchInput !== "" && (
-                                        <div style={{width: this.state.leftPaneMinimized ? "47%" : ""}} className='searchResults'>
+                                        <div className='searchResults'>
                                             {isSearchLoading && 
                                                 <div>
                                                     <p>Loading...</p>
