@@ -310,7 +310,12 @@ const Styles = styled.div  `
 }
 
 .searchResults {
-    border: 1px solid black;
+    width: 65%;
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 2%;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
