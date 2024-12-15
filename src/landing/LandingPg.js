@@ -325,6 +325,30 @@ const Styles = styled.div  `
     opacity: 0;
 }
 
+.searchResultCell {
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-radius: 6px;
+}
+
+.searchResultCell:hover {
+    background-color: #bcdcff;
+    cursor: pointer;
+}
+
+.searchResultOption {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    font-size: 85%;
+    // margin-bottom: 0px;
+}
+
+.searchResultCategory {
+    margin-left: 1.5%;
+    margin-top: 3px;
+    font-size: 65%;
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 
@@ -651,14 +675,14 @@ export default class LandingPage extends Component {
                                             }
                                             {!isSearchLoading && resultsFound && 
                                                 Object.entries(groupedOptions).map(([category, options]) => (
-                                                    <div style={{borderBottom: "1px solid #ccc", paddingTop: "1.2%", paddingBottom: "1.2%", position: "sticky"}} key={category}>
+                                                    <div style={{borderBottom: "1px solid #ccc", paddingTop: "1.5%", paddingBottom: "1.5%", position: "sticky"}} key={category}>
                                                         {options.map(option => (
                                                             <div 
                                                             onClick={() => this.searchedTermClicked(category, option, option.page)}
                                                             className='searchResultCell' 
                                                             key={option.id}>
                                                                 <p className='searchResultOption'>{option.highlightedName}</p>
-                                                                <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'>'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat4}</label> : null } </p> 
+                                                                {/* <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'>'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat4}</label> : null } </p>  */}
                                                             </div>
                                                         ))}
                                                     </div>
