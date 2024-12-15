@@ -245,15 +245,16 @@ const Styles = styled.div  `
     // - - SEARCH BAR - - //
 
 .meetings-options-header {
-    height: 10%;
+    height: 20%;
     // border: 1px solid black;
     margin-top: 9.5%;
+    position: relative;
 }
 
 .meetings-options-search-bar {
     display: flex;
     justify-content: space-between;
-    height: 60%;
+    height: 30%;
     width: 65%;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -311,11 +312,17 @@ const Styles = styled.div  `
 
 .searchResults {
     width: 65%;
+    max-height: 350px;
     border: 1px solid #ccc;
     background-color: white;
     margin-top: 10px;
     border-radius: 5px;
     padding: 2%;
+    overflow-y: scroll;
+}
+
+.searchResults.empty {
+    opacity: 0;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -526,7 +533,7 @@ export default class LandingPage extends Component {
             const highlightedName = (
                 <span>
                     {option.name.substring(0, startIndex)}
-                    <span style={{ fontWeight: "bold", color: "#2890B9" }}>
+                    <span style={{ fontWeight: "bold", color: "#4497f1" }}>
                         {option.name.substring(startIndex, endIndex)}
                     </span>
                     {option.name.substring(endIndex)}
@@ -636,7 +643,7 @@ export default class LandingPage extends Component {
                                         </div>
                                     </div>
                                     {searchInput !== "" && (
-                                        <div className='searchResults'>
+                                        <div className={`searchResults ${this.state.searchBarInput === '' ? 'empty' : ''}`}>
                                             {isSearchLoading && 
                                                 <div>
                                                     <p>Loading...</p>
@@ -659,7 +666,7 @@ export default class LandingPage extends Component {
                                             }
                                             {!isSearchLoading && !resultsFound && 
                                                 <div style={{textAlign: "center"}}>
-                                                    <p style={{fontFamily: "dm sans", fontWeight: "bold", marginTop: "4.25%", color: "#2890b9"}}>No results found</p>
+                                                    <p style={{fontWeight: "bold", marginTop: "4.25%", color: "#4497f1"}}>No results found</p>
                                                 </div>
                                             }
                                         </div>
