@@ -142,6 +142,18 @@ const Styles = styled.div  `
     line-height: 1.85;
 }
 
+.carousel-container-meeting-details textarea {
+    width: 100%;
+    line-height: 1.85;
+    font-family: Arial, sans-serif;
+    resize: none;
+    font-size: 100%;
+    min-height: 250px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
 .carousel-container-all-meetings {
     // margin-bottom: 5%;
     display: flex;
@@ -334,7 +346,7 @@ const Styles = styled.div  `
 }
 
 .searchResultCell:hover {
-    background-color: #bcdcff;
+    background-color: #dcecfd;
     cursor: pointer;
 }
 
@@ -597,7 +609,9 @@ export default class LandingPage extends Component {
                     <p>Phone: <label>253-215-8782</label> <label>Access Code: 170965</label></p>
                 </div>
                 <div className='carousel-container-meeting-details'>
-                    <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment.</p>
+                    <textarea
+                    disabled
+                    >An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment another text.</textarea>
                 </div>
                 <div
                 className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
