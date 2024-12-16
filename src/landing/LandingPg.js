@@ -41,7 +41,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 40px;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -272,11 +272,13 @@ const Styles = styled.div  `
     text-align: center;
     background-color: white;
     border-radius: 6px;
+    height: 100%;
+    display: grid;
+    place-items: center;
 }
 
 .meetings-options-search-bar-icon img {
-    width: 48%;
-    margin-top: 10.5px;
+    width: 45%;
 }
 
 .meetings-options-search-bar-input {
@@ -337,14 +339,14 @@ const Styles = styled.div  `
 }
 
 .searchResultOption {
-    margin-left: 1.5%;
+    margin-left: 2.5%;
     margin-right: 1.5%;
     font-size: 85%;
     margin-bottom: 0px;
 }
 
 .searchResultCategory {
-    margin-left: 1.5%;
+    margin-left: 2.5%;
     margin-top: 3px;
     font-size: 70%;
 }
