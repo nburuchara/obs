@@ -41,7 +41,7 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 40px;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
     // - MAIN SECTION BODY - //
@@ -254,7 +254,7 @@ const Styles = styled.div  `
 .meetings-options-search-bar {
     display: flex;
     justify-content: space-between;
-    height: 30%;
+    height: 40px;
     width: 65%;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -346,7 +346,7 @@ const Styles = styled.div  `
 .searchResultCategory {
     margin-left: 1.5%;
     margin-top: 3px;
-    font-size: 65%;
+    font-size: 70%;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -682,7 +682,7 @@ export default class LandingPage extends Component {
                                                             className='searchResultCell' 
                                                             key={option.id}>
                                                                 <p className='searchResultOption'>{option.highlightedName}</p>
-                                                                <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'>'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'>'} {option.subCat4}</label> : null } </p> 
+                                                                <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'|'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat4}</label> : null } </p> 
                                                             </div>
                                                         ))}
                                                     </div>
