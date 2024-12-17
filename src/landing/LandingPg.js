@@ -53,7 +53,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
 .header-details-container {
@@ -418,8 +418,20 @@ const Styles = styled.div  `
     font-size: 70%;
 }
 
-    // - - CSS TRANSITIONS / ANIMATIONS - - //
+    // - - MEETING SUBMIT PAGE - - /
 
+.meeting-submit-details {
+    width: 50%;
+    border: 1px solid black;
+    border-top: 1px solid #ccc;
+}
+
+.meeting-submit-confirm {
+    width: 50%;
+    border-top: 1px solid #ccc;
+}
+
+    // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 .carousel-container-all-meetings,
 .carousel-container-all-meetings-dropdown-img,
@@ -791,11 +803,11 @@ export default class LandingPage extends Component {
                         }
                         {this.state.showAddMeeting && 
                             <div className='main-section-body'>
-                                <div className='meetings-carousel'>
-
+                                <div className='meeting-submit-details'>
+                                
                                 </div>
-                                <div className='meetings-options'>
-
+                                <div className='meeting-submit-confirm'>
+                                    
                                 </div>
                             </div>
                         }
