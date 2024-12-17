@@ -95,6 +95,7 @@ const Styles = styled.div  `
     color: white;
     font-weight: bold;
     cursor: pointer;
+    width: 50%;
 }
 
     // - MAIN SECTION BODY - //
