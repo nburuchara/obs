@@ -421,14 +421,20 @@ const Styles = styled.div  `
     // - - MEETING SUBMIT PAGE - - /
 
 .meeting-submit-details {
+    position: relative;
     width: 50%;
     border: 1px solid black;
     border-top: 1px solid #ccc;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
 }
 
 .meeting-submit-confirm {
+    position: relative;
     width: 50%;
     border-top: 1px solid #ccc;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -804,10 +810,11 @@ export default class LandingPage extends Component {
                         {this.state.showAddMeeting && 
                             <div className='main-section-body'>
                                 <div className='meeting-submit-details'>
-                                
+                                    <h2>Meeting Submission Form</h2>
+                                    <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box. </p>
                                 </div>
                                 <div className='meeting-submit-confirm'>
-                                    
+                                    <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box.</p>
                                 </div>
                             </div>
                         }
