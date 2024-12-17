@@ -79,10 +79,18 @@ const Styles = styled.div  `
 .header-details-container-right {
     width: 20%;
     border: 1px solid black;
+    position: relative;
 }
 
 .header-details-container-right button {
-
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1.5%;
+    margin-right: 3.5%;
+    padding: 3.5%;
+    border-radius: 5px;
+    background-color: #4497f1;
 }
 
     // - MAIN SECTION BODY - //
