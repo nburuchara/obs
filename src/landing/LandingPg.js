@@ -32,19 +32,23 @@ const Styles = styled.div  `
     margin: auto;
 }
 
+    // - MAIN SECTION HEADER - //
+
 .main-section-header {
     height: 15%;
-    // max-width: 1920px;
+    position: relative;
     // border: 1px solid black;
 }
 
-    // - MAIN SECTION HEADER - //
-
 .main-section-header h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 250%;
     // font-family: palatino;
     // color: white;
+}
+
+.header-details-container {
+    
 }
 
     // - MAIN SECTION BODY - //
@@ -614,9 +618,6 @@ export default class LandingPage extends Component {
                 </div>
                 <div className='carousel-container-meeting-details'>
                     <p>An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment another text.</p>
-                    {/* <textarea
-                    disabled
-                    >An online Bible study group is a welcoming and interactive community where people gather virtually to explore scripture, share insights, and deepen their faith. Participants from diverse backgrounds connect through video calls, chat platforms, or dedicated apps, fostering spiritual growth and meaningful discussions. Each session often includes reading passages, group reflections, and guided teachings led by a facilitator or pastor. Members support one another through prayer and encouragement, creating a sense of fellowship despite physical distance. Accessible from anywhere, these groups offer flexibility and convenience, making it easy for believers to engage with God’s Word in a supportive online environment another text.</textarea> */}
                 </div>
                 <div
                 className={`carousel-container-all-meetings-expandable ${isExpanded ? 'expanded' : ''}`}
@@ -648,6 +649,8 @@ export default class LandingPage extends Component {
         )
     }
 
+
+
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
@@ -661,6 +664,9 @@ export default class LandingPage extends Component {
                     <div className='main-section'>
                         <div className='main-section-header'>
                             <h1>Free Online Bible Study</h1>
+                            <div className='header-details-container'>
+
+                            </div>
                         </div>
                         <div className='main-section-body'>
                             <div className='meetings-carousel'>
