@@ -353,7 +353,7 @@ const Styles = styled.div  `
 .searchResultOption {
     margin-left: 2.5%;
     margin-right: 1.5%;
-    font-size: 85%;
+    font-size: 90%;
     margin-bottom: 0px;
 }
 
