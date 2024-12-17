@@ -26,12 +26,15 @@ const Styles = styled.div  `
     // - - MAIN SECTION - - //
 
 .main-section {
-   height: 93%;
+    height: 93%;
     position: relative;
+    max-width: 1920px;
+    margin: auto;
 }
 
 .main-section-header {
     height: 15%;
+    // max-width: 1920px;
     // border: 1px solid black;
 }
 
@@ -41,17 +44,18 @@ const Styles = styled.div  `
     text-align: center;
     font-size: 40px;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
     // - MAIN SECTION BODY - //
 
 .main-section-body {
+    // max-width: 1920px;
     position: absolute;
     bottom: 0;
     height: 85%;
     // border: 1px solid black;
-    width: 100%;
+    // width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: #f8fafc;
