@@ -13,29 +13,32 @@ const Styles = styled.div  `
 .full-page {
     width: 100%;
     height: 100vh;
-    position: fixed;
+    // position: fixed;
 }
 
     // - - NAVBAR - - //
 
 .navbar {
-    height: 7%;
+    height: 60px;
     background-color: #4497f1;
 }
 
     // - - MAIN SECTION - - //
 
 .main-section {
-    height: 93%;
+    position: relative;
+    height: 1000px;
     position: relative;
     max-width: 1920px;
     margin: auto;
+    overflow-y: auto;
+    border-bottom: 5px solid red;
 }
 
     // - MAIN SECTION HEADER - //
 
 .main-section-header {
-    height: 15%;
+    height: 115px;
     position: relative;
     // border: 1px solid black;
 }
@@ -44,8 +47,8 @@ const Styles = styled.div  `
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50%;
-    // border: 1px solid black;
+    height: 57.5px;
+    border: 1px solid black;
 }
 
 .header-title-container h1 {
@@ -60,7 +63,7 @@ const Styles = styled.div  `
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 50%;
+    height: 57.5px;
     // border: 1px solid black;
     display: flex;
     justify-content: space-between;
@@ -437,6 +440,32 @@ const Styles = styled.div  `
     padding-right: 1.5%;
 }
 
+    // - SUBMIT FORM - //
+
+.meeting-submit-input-form-page-1 {
+    // border: 1px solid black;
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+    // height: 81%;
+}
+
+.meeting-submit-input-form-page-1 h4 {
+    margin-bottom: 10px;
+}
+
+.meeting-submit-input-form-page-1 span {
+    color: red;
+}
+
+.meeting-submit-input-form-page-1 input {
+    width: 75%;
+    font-size: 100%;
+    padding: 8px;
+    border: 1px solid #5e626a;
+    outline: none;
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 .carousel-container-all-meetings,
@@ -501,8 +530,8 @@ export default class LandingPage extends Component {
         this.state = {
 
             //* - MAIN BODY COMPONENTS - *//
-            showMeetingList: false,
-            showAddMeeting: true,
+            showMeetingList: true,
+            showAddMeeting: false,
 
             isExpanded: false,
             searchBarIsClicked: false,
@@ -813,8 +842,11 @@ export default class LandingPage extends Component {
                                     <h2>Meeting Submission Form</h2>
                                     <p>If you have a Bible study group that meets digitally — via phone, chat, video conference, etc — (or you want to create a new one) please share participation information with us, so we can include it in the online directory.</p>
 
-                                    <div>
-
+                                    <div className='meeting-submit-input-form-page-1'>
+                                        <h4>Group Name <span>*</span></h4>
+                                        <input
+                                        placeholder="e.g. Tuesday Men's Weekly Study"
+                                        />
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
@@ -822,6 +854,10 @@ export default class LandingPage extends Component {
                                 </div>
                             </div>
                         }
+
+                        <div style={{position: "absolute", bottom: "0"}}>
+                            <h2>plop</h2>
+                        </div>
                     </div>
                 </div>
             </Styles>
