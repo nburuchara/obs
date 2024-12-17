@@ -62,6 +62,27 @@ const Styles = styled.div  `
     width: 100%;
     height: 50%;
     border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-details-container-left {
+    width: 20%;
+    border: 1px solid black;
+}
+
+.header-details-container-mid {
+    width: 60%;
+    border: 1px solid black;
+}
+
+.header-details-container-right {
+    width: 20%;
+    border: 1px solid black;
+}
+
+.header-details-container-right button {
+
 }
 
     // - MAIN SECTION BODY - //
@@ -680,7 +701,15 @@ export default class LandingPage extends Component {
                                 <h1>Free Online Bible Study</h1>
                             </div>
                             <div className='header-details-container'>
+                                <div className='header-details-container-left'>
+                                    
+                                </div>
+                                <div className='header-details-container-mid'>
 
+                                </div>
+                                <div className='header-details-container-right'>
+                                    <button>+ New Meeting</button>
+                                </div>
                             </div>
                         </div>
                         <div className='main-section-body'>
