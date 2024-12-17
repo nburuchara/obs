@@ -45,7 +45,7 @@ const Styles = styled.div  `
     top: 0;
     width: 100%;
     height: 50%;
-    border: 1px solid black;
+    // border: 1px solid black;
 }
 
 .header-title-container h1 {
@@ -61,24 +61,24 @@ const Styles = styled.div  `
     bottom: 0;
     width: 100%;
     height: 50%;
-    border: 1px solid black;
+    // border: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
 
 .header-details-container-left {
     width: 20%;
-    border: 1px solid black;
+    // border: 1px solid black;
 }
 
 .header-details-container-mid {
     width: 60%;
-    border: 1px solid black;
+    // border: 1px solid black;
 }
 
 .header-details-container-right {
     width: 20%;
-    border: 1px solid black;
+    // border: 1px solid black;
     position: relative;
 }
 
@@ -86,11 +86,15 @@ const Styles = styled.div  `
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-bottom: 1.5%;
-    margin-right: 3.5%;
+    margin-bottom: 4.5%;
+    margin-right: 5%;
     padding: 3.5%;
     border-radius: 5px;
     background-color: #4497f1;
+    border: 1px solid #4497f1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
     // - MAIN SECTION BODY - //
