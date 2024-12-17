@@ -481,6 +481,11 @@ export default class LandingPage extends Component {
     constructor () {
         super()
         this.state = {
+
+            //* - MAIN BODY COMPONENTS - *//
+            showMeetingList: false,
+            showAddMeeting: true,
+
             isExpanded: false,
             searchBarIsClicked: false,
             searchBarInput: '',
@@ -725,64 +730,75 @@ export default class LandingPage extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='main-section-body'>
-                            <div className='meetings-carousel'>
-                                {this.renderCurrentMeetings()}
-                            </div>
-                            <div className='meetings-options'>
-                                <div className='meetings-options-header'>
-                                    <div 
-                                    ref={this.searchBarRef}
-                                    className={`meetings-options-search-bar ${searchBarIsClicked ? 'clicked' : ''}`}>
-                                        <div className='meetings-options-search-bar-icon'>
-                                            <img src='/assets/icons/search-icon.png' alt=''/>
+                        {this.state.showMeetingList && 
+                            <div className='main-section-body'>
+                                <div className='meetings-carousel'>
+                                    {this.renderCurrentMeetings()}
+                                </div>
+                                <div className='meetings-options'>
+                                    <div className='meetings-options-header'>
+                                        <div 
+                                        ref={this.searchBarRef}
+                                        className={`meetings-options-search-bar ${searchBarIsClicked ? 'clicked' : ''}`}>
+                                            <div className='meetings-options-search-bar-icon'>
+                                                <img src='/assets/icons/search-icon.png' alt=''/>
+                                            </div>
+                                            <div className='meetings-options-search-bar-input'>
+                                                <input
+                                                id='searchBarInput'
+                                                onClick={this.searchBarClicked}
+                                                placeholder='Search...'
+                                                value={this.state.searchBarInput}
+                                                onChange={this.handleSearchChange}
+                                                />
+                                            </div>
+                                            <div className='meetings-options-search-bar-close-icon'>
+                                                {this.state.clearSearchBtn && <img onClick={this.clearSearchBar} src='/assets/icons/search-icon-close.png' alt=''/>}
+                                            </div>
                                         </div>
-                                        <div className='meetings-options-search-bar-input'>
-                                            <input
-                                            id='searchBarInput'
-                                            onClick={this.searchBarClicked}
-                                            placeholder='Search...'
-                                            value={this.state.searchBarInput}
-                                            onChange={this.handleSearchChange}
-                                            />
-                                        </div>
-                                        <div className='meetings-options-search-bar-close-icon'>
-                                            {this.state.clearSearchBtn && <img onClick={this.clearSearchBar} src='/assets/icons/search-icon-close.png' alt=''/>}
-                                        </div>
-                                    </div>
-                                    {searchInput !== "" && (
-                                        <div className={`searchResults ${this.state.searchBarInput === '' ? 'empty' : ''}`}>
-                                            {isSearchLoading && 
-                                                <div>
-                                                    <p>Loading...</p>
-                                                </div>
-                                            }
-                                            {!isSearchLoading && resultsFound && 
-                                                Object.entries(groupedOptions).map(([category, options]) => (
-                                                    <div style={{borderBottom: "1px solid #ccc", paddingTop: "1.5%", paddingBottom: "1.5%", position: "sticky"}} key={category}>
-                                                        {options.map(option => (
-                                                            <div 
-                                                            onClick={() => this.searchedTermClicked(category, option, option.page)}
-                                                            className='searchResultCell' 
-                                                            key={option.id}>
-                                                                <p className='searchResultOption'>{option.highlightedName}</p>
-                                                                <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'|'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat4}</label> : null } </p> 
-                                                            </div>
-                                                        ))}
+                                        {searchInput !== "" && (
+                                            <div className={`searchResults ${this.state.searchBarInput === '' ? 'empty' : ''}`}>
+                                                {isSearchLoading && 
+                                                    <div>
+                                                        <p>Loading...</p>
                                                     </div>
-                                                ))
-                                            }
-                                            {!isSearchLoading && !resultsFound && 
-                                                <div style={{textAlign: "center"}}>
-                                                    <p style={{fontWeight: "bold", marginTop: "4.25%", color: "#4497f1"}}>No results found</p>
-                                                </div>
-                                            }
-                                        </div>
-                                    )}
+                                                }
+                                                {!isSearchLoading && resultsFound && 
+                                                    Object.entries(groupedOptions).map(([category, options]) => (
+                                                        <div style={{borderBottom: "1px solid #ccc", paddingTop: "1.5%", paddingBottom: "1.5%", position: "sticky"}} key={category}>
+                                                            {options.map(option => (
+                                                                <div 
+                                                                onClick={() => this.searchedTermClicked(category, option, option.page)}
+                                                                className='searchResultCell' 
+                                                                key={option.id}>
+                                                                    <p className='searchResultOption'>{option.highlightedName}</p>
+                                                                    <p className='searchResultCategory'>{category} {option.subCat1 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat1}</label> : null } {option.subCat2 ? <label style={{cursor: "pointer"}}>{'|'} {option.subCat2}</label> : null } {option.subCat3 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat3}</label> : null } {option.subCat4 ? <label style={{cursor: "pointer"}}> {'|'} {option.subCat4}</label> : null } </p> 
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    ))
+                                                }
+                                                {!isSearchLoading && !resultsFound && 
+                                                    <div style={{textAlign: "center"}}>
+                                                        <p style={{fontWeight: "bold", marginTop: "4.25%", color: "#4497f1"}}>No results found</p>
+                                                    </div>
+                                                }
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        }
+                        {this.state.showAddMeeting && 
+                            <div className='main-section-body'>
+                                <div className='meetings-carousel'>
+
+                                </div>
+                                <div className='meetings-options'>
+
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </Styles>
