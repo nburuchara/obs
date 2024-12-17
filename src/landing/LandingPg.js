@@ -40,15 +40,28 @@ const Styles = styled.div  `
     // border: 1px solid black;
 }
 
-.main-section-header h1 {
+.header-title-container { 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    border: 1px solid black;
+}
+
+.header-title-container h1 {
     text-align: center;
     font-size: 250%;
+    margin-top: 1%;
     // font-family: palatino;
     // color: white;
 }
 
 .header-details-container {
-    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    border: 1px solid black;
 }
 
     // - MAIN SECTION BODY - //
@@ -663,7 +676,9 @@ export default class LandingPage extends Component {
                     </div>
                     <div className='main-section'>
                         <div className='main-section-header'>
-                            <h1>Free Online Bible Study</h1>
+                            <div className='header-title-container'>
+                                <h1>Free Online Bible Study</h1>
+                            </div>
                             <div className='header-details-container'>
 
                             </div>
