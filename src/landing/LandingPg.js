@@ -423,7 +423,7 @@ const Styles = styled.div  `
 .meeting-submit-details {
     position: relative;
     width: 50%;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-top: 1px solid #ccc;
     padding-left: 1.5%;
     padding-right: 1.5%;
@@ -811,7 +811,11 @@ export default class LandingPage extends Component {
                             <div className='main-section-body'>
                                 <div className='meeting-submit-details'>
                                     <h2>Meeting Submission Form</h2>
-                                    <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box. </p>
+                                    <p>If you have a Bible study group that meets digitally — via phone, chat, video conference, etc — (or you want to create a new one) please share participation information with us, so we can include it in the online directory.</p>
+
+                                    <div>
+
+                                    </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
                                     <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box.</p>
