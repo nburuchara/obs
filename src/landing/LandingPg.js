@@ -29,7 +29,7 @@ const Styles = styled.div  `
 
 .main-section {
     position: relative;
-    height: 1000px;
+    height: 800px;
     position: relative;
     max-width: 1920px;
     margin: auto;
@@ -40,7 +40,7 @@ const Styles = styled.div  `
     // - MAIN SECTION HEADER - //
 
 .main-section-header {
-    height: 149px;
+    height: 150px;
     position: relative;
     // border: 1px solid black;
     // border-bottom: 1px solid red;
@@ -59,7 +59,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
 .header-details-container-left button {
@@ -100,7 +100,7 @@ const Styles = styled.div  `
     // max-width: 1920px;
     position: absolute;
     bottom: 0;
-    height: 85%;
+    height: 650px;
     // border: 1px solid black;
     // width: 100%;
     display: flex;
