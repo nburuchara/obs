@@ -518,6 +518,21 @@ const Styles = styled.div  `
     outline: none;
 }
 
+.meeting-submit-input-form-page-1 textarea {
+    width: 85%;
+    lines: 3;
+    padding: 1%;
+    font-family: Arial, sans-serif;
+    font-size: 100%;
+    min-height: calc(1.2em * 5); /* Assuming 1.2em line height for 5 lines */
+    line-height: 1.2em; /* Adjust line height if needed */
+    resize: vertical; /* Allow users to resize vertically only */
+}
+
+.meeting-submit-input-form-page-1 p {
+    font-size: 80%;
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 .carousel-container-all-meetings,
@@ -597,8 +612,14 @@ export default class LandingPage extends Component {
             timezones: [], // List of timezones
             selectedTimezone: "", // Selected timezone,
 
+            //* - DATABASE DATA (for testing) - *//
             data: [], // Stores fetched Firestore data
             input: "", // Stores textarea input
+
+            //* - ADD MEETING COMPONENTS - *//
+            text: '',
+            charCount: 0,
+            maxChars: 750,
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1289,6 +1310,18 @@ export default class LandingPage extends Component {
         this.setState({ selectedTimezone: event.target.value });
     };
 
+    //! - - ADD MEETING FUNCTIONS - - !//
+
+    handleChange = (event) => {
+        const text = event.target.value;
+        if (text.length <= this.state.maxChars) {
+            this.setState({
+              text: text,
+              charCount: text.length, // Update the character count
+            });
+        }
+    };
+
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
@@ -1409,7 +1442,11 @@ export default class LandingPage extends Component {
                                         />
 
                                         <h4>Group Notes <span>*</span></h4>
-                                        <textarea/>
+                                        <textarea
+                                        value={this.state.text}
+                                        onChange={this.handleChange}
+                                        />
+                                        <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
