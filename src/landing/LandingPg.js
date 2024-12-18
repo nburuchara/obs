@@ -596,7 +596,7 @@ export default class LandingPage extends Component {
             selectedTimezone: "", // Selected timezone,
 
             data: [], // Stores fetched Firestore data
-      input: "", // Stores textarea input
+            input: "", // Stores textarea input
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1041,6 +1041,8 @@ export default class LandingPage extends Component {
             timezones,
             selectedTimezone: userTimezone
         });
+
+        // this.fetchData();
 
     }
 
