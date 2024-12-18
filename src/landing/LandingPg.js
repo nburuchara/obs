@@ -41,15 +41,15 @@ const Styles = styled.div  `
     height: 149px;
     position: relative;
     // border: 1px solid black;
-    border-bottom: 1px solid red;
+    // border-bottom: 1px solid red;
 }
 
 .header-title-container { 
     position: absolute;
     top: 0;
     width: 100%;
-    height: 60px;
-    border: 1px solid black;  
+    height: 74.5px;
+    // border: 1px solid black;  
 }
 
 .header-title-container h1 {
@@ -60,7 +60,23 @@ const Styles = styled.div  `
     color: white;
 }
 
-.main-section-header button {
+.header-details-container-left button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0.8%;
+    margin-left: 0.8%;
+    padding: 0.8%;
+    border-radius: 5px;
+    background-color: #4497f1;
+    border: 1px solid #4497f1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 10%;
+}
+
+.header-details-container-right button {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -396,6 +412,18 @@ const Styles = styled.div  `
     font-size: 70%;
 }
 
+    // - - MEETING TIME ZONE SELECTOR - - //
+
+
+#timezoneDropdown {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
     // - - MEETING SUBMIT PAGE - - /
 
 .meeting-submit-details {
@@ -508,9 +536,16 @@ export default class LandingPage extends Component {
             showMeetingList: true,
             showAddMeeting: false,
 
+            //* - SINGLE MEETING COMPONENTS - *//
             isExpanded: false,
+
+            //* - SEARCH BAR COMPONENTS - *//
             searchBarIsClicked: false,
             searchBarInput: '',
+
+            //* - TIME ZONE COMPONENTS - *//
+            timezones: [], // List of timezones
+            selectedTimezone: "" // Selected timezone
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -522,6 +557,29 @@ export default class LandingPage extends Component {
     componentDidMount() {
         // Add a click event listener to the document
         document.addEventListener('click', this.handleOutsideSearchBarClick);
+        const timezones = [
+            "Pacific/Midway",
+            "America/Adak",
+            "America/Anchorage",
+            "America/Los_Angeles",
+            "America/Denver",
+            "America/Chicago",
+            "America/New_York",
+            "Europe/London",
+            "Europe/Paris",
+            "Asia/Tokyo",
+            "Australia/Sydney"
+        ];
+
+        // Automatically detect user's local timezone
+        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Update state
+        this.setState({
+            timezones,
+            selectedTimezone: userTimezone // Pre-select user's timezone
+        });
+
     }
 
     componentWillUnmount() {
@@ -529,7 +587,7 @@ export default class LandingPage extends Component {
         document.removeEventListener('click', this.handleOutsideSearchBarClick);
     }
 
-    //! - - EXPAND SELECTED 'ALL MEETINGS' TAB - - !//
+    //! - - EXPAND SINGLE MEETING 'ALL MEETINGS' TAB - - !//
 
     toggleExpand = () => {
         this.setState((prevState) => ({ isExpanded: !prevState.isExpanded }));
@@ -724,10 +782,16 @@ export default class LandingPage extends Component {
     }
 
 
+    //! - - TIME ZONE FUNCTIONS - - !//
+
+    handleChange = (event) => {
+        this.setState({ selectedTimezone: event.target.value });
+    };
 
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
+        const { timezones, selectedTimezone } = this.state;
 
         return (
             <Styles>
@@ -742,10 +806,7 @@ export default class LandingPage extends Component {
                             </div>
                             <div className='header-details-container'>
                                 <div className='header-details-container-left'>
-                                    
-                                </div>
-                                <div className='header-details-container-mid'>
-
+                                    <button>Donate</button>
                                 </div>
                                 <div className='header-details-container-right'>
                                     <button>+ New Meeting</button>
@@ -807,6 +868,23 @@ export default class LandingPage extends Component {
                                                 }
                                             </div>
                                         )}
+
+                                        <div>
+                                            {/* <label htmlFor="timezoneDropdown">Select a Timezone:</label> */}
+                                            <select
+                                            id="timezoneDropdown"
+                                            value={selectedTimezone}
+                                            onChange={this.handleChange}
+                                            >
+                                            {timezones.map((timezone) => (
+                                                <option key={timezone} value={timezone}>
+                                                {timezone}
+                                                </option>
+                                            ))}
+                                            </select>
+                                            <p>Selected Timezone: {selectedTimezone}</p>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
