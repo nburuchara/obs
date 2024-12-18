@@ -19,8 +19,10 @@ const Styles = styled.div  `
     // - - NAVBAR - - //
 
 .navbar {
+    margin: auto;
     height: 60px;
     background-color: #4497f1;
+    max-width: 1920px;
 }
 
     // - - MAIN SECTION - - //
@@ -117,10 +119,10 @@ const Styles = styled.div  `
 }
 
 .carousel-container {
-    width: 90%;
+    width: 95%;
     border: 1px solid #cbd5e0;
     border-radius: 6px;
-    margin: auto;
+    margin-left: 1.25%;
     margin-top: 5%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
@@ -374,14 +376,16 @@ const Styles = styled.div  `
 }
 
 .searchResults {
+    z-index: 5;
     width: 65%;
     max-height: 350px;
     border: 1px solid #ccc;
     background-color: white;
-    margin-top: 10px;
+    margin-top: 8px;
     border-radius: 5px;
     padding: 2%;
     overflow-y: scroll;
+    position: relative;
 }
 
 .searchResults.empty {
@@ -416,10 +420,13 @@ const Styles = styled.div  `
 
 
 #timezoneDropdown {
+    // position: absolute;
+    // top: 0;
+    margin-top: 10px;
     width: 60%;
     padding: 10px;
     font-size: 16px;
-    margin-top: 10px;
+    z-index: 1;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding-right: 20px; /* Add padding to the right */
@@ -552,6 +559,7 @@ export default class LandingPage extends Component {
             searchBarInput: '',
 
             //* - TIME ZONE COMPONENTS - *//
+            showTimezones: true,
             timezones: [], // List of timezones
             selectedTimezone: "" // Selected timezone
         }
@@ -1047,7 +1055,8 @@ export default class LandingPage extends Component {
             searchBarInput: e.target.value,
             isSearchLoading: true,
             clearSearchBtn: true,
-            showDocsPopupHomescreen: false
+            showDocsPopupHomescreen: false,
+            showTimezones: false
         });
         
         const searchInput = e.target.value.toLowerCase();
@@ -1066,7 +1075,8 @@ export default class LandingPage extends Component {
                     isSearchLoading: false,
                     resultsFound: false,
                     showDocsPopupHomescreen: true,
-                    clearSearchBtn: false
+                    clearSearchBtn: false,
+                    showTimezones: true
                 });
 
             } else {
@@ -1258,6 +1268,23 @@ export default class LandingPage extends Component {
                                                 {this.state.clearSearchBtn && <img onClick={this.clearSearchBar} src='/assets/icons/search-icon-close.png' alt=''/>}
                                             </div>
                                         </div>
+                                        {this.state.showTimezones && 
+                                            <div>
+                                                {/* <label htmlFor="timezoneDropdown">Select a Timezone:</label> */}
+                                                <select
+                                                id="timezoneDropdown"
+                                                value={selectedTimezone}
+                                                onChange={this.handleChange}
+                                                >
+                                                {timezones.map((timezone) => (
+                                                    <option key={timezone} value={timezone}>
+                                                    {timezone}
+                                                    </option>
+                                                ))}
+                                                </select>
+                                                {/* <p>Selected Timezone: {selectedTimezone}</p> */}
+                                            </div>
+                                        }
                                         {searchInput !== "" && (
                                             <div className={`searchResults ${this.state.searchBarInput === '' ? 'empty' : ''}`}>
                                                 {isSearchLoading && 
@@ -1288,21 +1315,7 @@ export default class LandingPage extends Component {
                                             </div>
                                         )}
 
-                                        <div>
-                                            {/* <label htmlFor="timezoneDropdown">Select a Timezone:</label> */}
-                                            <select
-                                            id="timezoneDropdown"
-                                            value={selectedTimezone}
-                                            onChange={this.handleChange}
-                                            >
-                                            {timezones.map((timezone) => (
-                                                <option key={timezone} value={timezone}>
-                                                {timezone}
-                                                </option>
-                                            ))}
-                                            </select>
-                                            {/* <p>Selected Timezone: {selectedTimezone}</p> */}
-                                        </div>
+                    
 
                                     </div>
                                 </div>
