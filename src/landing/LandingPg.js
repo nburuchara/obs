@@ -514,7 +514,7 @@ const Styles = styled.div  `
     width: 75%;
     font-size: 100%;
     padding: 8px;
-    border: 1px solid #5e626a;
+    border: 1px solid #ccc;
     outline: none;
 }
 
@@ -527,6 +527,8 @@ const Styles = styled.div  `
     min-height: calc(1.2em * 5); /* Assuming 1.2em line height for 5 lines */
     line-height: 1.2em; /* Adjust line height if needed */
     resize: vertical; /* Allow users to resize vertically only */
+    border: 1px solid #ccc;
+    outline: none;
 }
 
 .meeting-submit-input-form-page-1 p {
@@ -1445,6 +1447,7 @@ export default class LandingPage extends Component {
                                         <textarea
                                         value={this.state.text}
                                         onChange={this.handleChange}
+                                        placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
                                         <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
                                     </div>
