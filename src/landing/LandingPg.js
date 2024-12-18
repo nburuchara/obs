@@ -582,8 +582,8 @@ export default class LandingPage extends Component {
         this.state = {
 
             //* - MAIN BODY COMPONENTS - *//
-            showMeetingList: true,
-            showAddMeeting: false,
+            showMeetingList: false,
+            showAddMeeting: true,
 
             //* - SINGLE MEETING COMPONENTS - *//
             isExpanded: false,
@@ -1407,6 +1407,9 @@ export default class LandingPage extends Component {
                                         <input
                                         placeholder="e.g. Tuesday Men's Weekly Study"
                                         />
+
+                                        <h4>Group Notes <span>*</span></h4>
+                                        <textarea/>
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
