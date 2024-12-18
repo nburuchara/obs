@@ -47,8 +47,8 @@ const Styles = styled.div  `
     position: absolute;
     top: 0;
     width: 100%;
-    height: 57.5px;
-    border: 1px solid black;
+    height: 60px;
+    border: 1px solid black;  
 }
 
 .header-title-container h1 {
@@ -56,32 +56,32 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
-.header-details-container {
+.header-details-contai1ner {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 57.5px;
-    // border: 1px solid black;
+    height: 60px;
+    border: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
 
 .header-details-container-left {
     width: 20%;
-    // border: 1px solid black;
+    border: 1px solid black;
 }
 
 .header-details-container-mid {
     width: 60%;
-    // border: 1px solid black;
+    border: 1px solid black;
 }
 
 .header-details-container-right {
     width: 20%;
-    // border: 1px solid black;
+    border: 1px solid black;
     position: relative;
 }
 
