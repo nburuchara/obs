@@ -418,48 +418,47 @@ const Styles = styled.div  `
 
     // - - MEETING TIME ZONE SELECTOR - - //
 
-.select-wrapper {
-    position: relative;
-    width: 60%; /* Matches the select element's width */
+
+.timezone-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 60%;
+    align-items: center;
+    border-radius: 5px;
     margin-top: 10px;
 }
 
-.select-wrapper select {
-    width: 100%; /* Ensures the select fills the wrapper's width */
-    padding: 10px;
-    padding-left: 5px; /* Add space for the clock icon */
-    padding-right: 20px; /* Space for the dropdown arrow */
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('/assets/icons/dropdown-down-arrow.png'); /* Dropdown arrow */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 10px) center; /* Position of dropdown arrow */
-    background-size: 10px; /* Size of the dropdown arrow */
+.timezone-container-img {
+    width: 13%;
+    display: flex; /* Use flexbox to center the clock icon */
+    justify-content: center; /* Horizontally center the clock icon */
+    align-items: center; /* Vertically center the clock icon */
+}
+
+.select-wrapper {
+    position: relative;
+    width: 87%; /* Matches the select element's width */
+    margin-top: 0px;
+    // border: 1px solid black;
+    text-align: right;
 }
 
 .clock-icon {
-    position: absolute;
-    left: 10px; /* Space from the left edge of the select element */
-    top: 50%; /* Vertically center the icon */
-    transform: translateY(-50%); /* Adjust for exact centering */
     width: 16px; /* Size of the clock icon */
     height: 16px; /* Size of the clock icon */
     pointer-events: none; /* Prevent the icon from interfering with user interaction */
 }
 
 #timezoneDropdown {
-    // position: absolute;
-    // top: 0;
-    margin-top: 10px;
-    width: 60%;
+    outline: none;
+    width: 100%;
     padding: 10px;
+    padding-left: 0px;
     font-size: 16px;
     z-index: 1;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 5px;
     padding-right: 20px; /* Add padding to the right */
     appearance: none; /* Remove default browser styling for the arrow */
@@ -1188,7 +1187,8 @@ export default class LandingPage extends Component {
     clearSearchBar = () => {
         this.setState({
             searchBarInput: '',
-            clearSearchBtn: false
+            clearSearchBtn: false,
+            showTimezones: true
         })
     }
 
@@ -1301,20 +1301,23 @@ export default class LandingPage extends Component {
                                             </div>
                                         </div>
                                         {this.state.showTimezones && 
-                                            <div className="select-wrapper">
-                                                {/* Add clock icon here */}
-                                                <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="clock-icon" />
-                                                <select
-                                                id="timezoneDropdown"
-                                                value={selectedTimezone}
-                                                onChange={this.handleChange}
-                                                >
-                                                {timezones.map((timezone) => (
-                                                    <option key={timezone} value={timezone}>
-                                                    {timezone}
-                                                    </option>
-                                                ))}
-                                                </select>
+                                            <div className='timezone-container'>
+                                                <div className='timezone-container-img'>
+                                                    <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="clock-icon" />
+                                                </div>
+                                                <div className="select-wrapper">
+                                                    <select
+                                                    id="timezoneDropdown"
+                                                    value={selectedTimezone}
+                                                    onChange={this.handleChange}
+                                                    >
+                                                    {timezones.map((timezone) => (
+                                                        <option key={timezone} value={timezone}>
+                                                        {timezone}
+                                                        </option>
+                                                    ))}
+                                                    </select>
+                                                </div>
                                             </div>
                                         }
                                         {searchInput !== "" && (
