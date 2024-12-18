@@ -1,6 +1,8 @@
 
 import React, {Component} from 'react'
 import styled from 'styled-components'
+import { db } from "../database/firebase.js";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 //? - - FILES - - //
 import SearchTerms from '../meetings/MeetingsFile.js'
@@ -1042,9 +1044,41 @@ export default class LandingPage extends Component {
             selectedTimezone: userTimezone
         });
 
-        // this.fetchData();
+        this.fetchData();
 
     }
+
+    //! - - LOAD MEETING DETAILS FROM DATABASE - - !//
+
+    // Fetch data from Firestore
+    fetchData = async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, "myCollection"));
+            const items = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            this.setState({ data: items });
+        } catch (error) {
+            console.error("Error fetching documents:", error);
+        }
+    };
+
+    // Add data to Firestore
+    addData = async () => {
+        const { input } = this.state;
+        try {
+            await addDoc(collection(db, "myCollection"), { text: input });
+            this.setState({ input: "" }, this.fetchData); // Clear input and refresh data
+        } catch (error) {
+            console.error("Error adding document:", error);
+        }
+    };
+
+    // Handle input changes
+    handleInputChange = (event) => {
+        this.setState({ input: event.target.value });
+    };
 
     componentWillUnmount() {
         // Remove the click event listener to prevent memory leaks
