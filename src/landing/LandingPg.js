@@ -29,7 +29,7 @@ const Styles = styled.div  `
 
 .main-section {
     position: relative;
-    height: 800px;
+    height: 1000px;
     position: relative;
     max-width: 1920px;
     margin: auto;
@@ -40,7 +40,7 @@ const Styles = styled.div  `
     // - MAIN SECTION HEADER - //
 
 .main-section-header {
-    height: 150px;
+    height: 149px;
     position: relative;
     // border: 1px solid black;
     // border-bottom: 1px solid red;
@@ -59,7 +59,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
 .header-details-container-left button {
@@ -84,14 +84,15 @@ const Styles = styled.div  `
     right: 0;
     margin-bottom: 0.8%;
     margin-right: 0.8%;
-    padding: 0.8%;
+    padding: 1%;
     border-radius: 5px;
     background-color: #4497f1;
     border: 1px solid #4497f1;
     color: white;
     font-weight: bold;
+    font-size: 100%;
     cursor: pointer;
-    width: 10%;
+    width: 19%;
 }
 
     // - MAIN SECTION BODY - //
@@ -100,7 +101,7 @@ const Styles = styled.div  `
     // max-width: 1920px;
     position: absolute;
     bottom: 0;
-    height: 650px;
+    height: 85%;
     // border: 1px solid black;
     // width: 100%;
     display: flex;
@@ -592,7 +593,10 @@ export default class LandingPage extends Component {
             //* - TIME ZONE COMPONENTS - *//
             showTimezones: true,
             timezones: [], // List of timezones
-            selectedTimezone: "" // Selected timezone
+            selectedTimezone: "", // Selected timezone,
+
+            data: [], // Stores fetched Firestore data
+      input: "", // Stores textarea input
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
