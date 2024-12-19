@@ -36,7 +36,7 @@ const Styles = styled.div  `
     max-width: 1920px;
     margin: auto;
     overflow-y: auto;
-    border-bottom: 5px solid red;
+    // border-bottom: 5px solid red;
 }
 
     // - MAIN SECTION HEADER - //
@@ -1465,9 +1465,33 @@ export default class LandingPage extends Component {
 
                                         <h4>Meeting Phone Number</h4>
                                         <input
-                                        placeholder="e.g. +1(507)-321-1234"
+                                        placeholder="e.g. +1(507)321-1234"
+                                        />
+                                        '
+                                        <h4>Other Meeting Formats or Access Codes (e.g. chat, email groups, etc)</h4>
+                                        <input
+                                        placeholder=""
                                         />
 
+                                        <h4>Language <span>*</span></h4>
+                                        <div className='timezone-container'>
+                                            <div className='timezone-container-img'>
+                                                <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="clock-icon" />
+                                            </div>
+                                            <div className="select-wrapper">
+                                                <select
+                                                id="timezoneDropdown"
+                                                value={selectedTimezone}
+                                                onChange={this.handleChange}
+                                                >
+                                                {timezones.map((timezone) => (
+                                                    <option key={timezone} value={timezone}>
+                                                    {timezone}
+                                                    </option>
+                                                ))}
+                                                </select>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -1477,9 +1501,9 @@ export default class LandingPage extends Component {
                             </div>
                         }
 
-                        <div style={{position: "absolute", bottom: "0"}}>
+                        {/* <div style={{position: "absolute", bottom: "0"}}>
                             <h2>plop</h2>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Styles>
