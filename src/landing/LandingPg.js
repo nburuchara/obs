@@ -61,7 +61,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
 .header-details-container-left button {
@@ -1511,6 +1511,7 @@ export default class LandingPage extends Component {
                 };
             }
         });
+        console.log(this.state.selectedDays)
     };
 
     render () {
@@ -1655,7 +1656,7 @@ export default class LandingPage extends Component {
                                         <input
                                         placeholder="e.g. +1(507) 321-1234"
                                         />
-                                        '
+                                        
                                         <h4>Other Meeting Formats or Access Codes (e.g. chat, email groups, etc)</h4>
                                         <input
                                         placeholder=""
@@ -1705,6 +1706,15 @@ export default class LandingPage extends Component {
                                                 ))}
                                             </ul>
                                         </div>
+
+                                        <h4>Meeting Start Time(s) in Your Submitted Time Zone <span>*</span></h4>
+                                        <textarea
+                                        value={this.state.text}
+                                        onChange={this.handleGroupNotesTextareaChange}
+                                        placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
+                                        />
+                                        <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
+
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
