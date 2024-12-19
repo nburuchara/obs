@@ -607,6 +607,16 @@ const Styles = styled.div  `
     padding-left: 0px;
 }
 
+    // - MEETING GUIDELINE - //
+
+.meeting-submit-input-form-terms textarea {
+    width: 90%;
+    margin-top: 20px;
+    resize: none;
+    font-size: 80%;
+    font-family: Arial, sans-serif;
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 .carousel-container-all-meetings,
@@ -701,6 +711,7 @@ export default class LandingPage extends Component {
             meetingTimesText: '',
             meetingTimesCharCount: 0,
             isGDPRSelected: false, // Tracks whether the checkbox is selected
+
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1796,7 +1807,11 @@ export default class LandingPage extends Component {
                                                 I have read and agree to the meeting guidelines below.
                                             </label>
                                         </div>
-
+                                        <div className='meeting-submit-input-form-terms'>
+                                            <textarea>
+                                                <p></p>
+                                            </textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
