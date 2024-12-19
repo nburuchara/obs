@@ -700,6 +700,7 @@ export default class LandingPage extends Component {
             selectedDays: [], // Array to hold selected days
             meetingTimesText: '',
             meetingTimesCharCount: 0,
+            isGDPRSelected: false, // Tracks whether the checkbox is selected
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1524,6 +1525,14 @@ export default class LandingPage extends Component {
         }
     };
 
+    handleGDPRSelectChange = () => {
+        this.setState((prevState) => ({
+            isGDPRSelected: !prevState.isGDPRSelected, // Toggle the checkbox state
+        }), () => {
+            console.log(`GDPR Checkbox is ${this.state.isGDPRSelected ? "checked" : "unchecked"}`);
+        });
+    };
+
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
@@ -1734,27 +1743,38 @@ export default class LandingPage extends Component {
 
                                     <div className='meeting-submit-input-form-page-1'>
 
-                                    <h4>Primary Contact Name <span>*</span></h4>
-                                    <input
-                                    placeholder=""
-                                    />
-                                    
-                                    <h4>Primary Contact Email <span>*</span></h4>
-                                    <input
-                                    placeholder=""
-                                    />
+                                        <h4>Primary Contact Name <span>*</span></h4>
+                                        <input
+                                        placeholder=""
+                                        />
+                                        
+                                        <h4>Primary Contact Email <span>*</span></h4>
+                                        <input
+                                        placeholder=""
+                                        />
 
-                                    <h4>Alternate Contact Name <span>*</span></h4>
-                                    <input
-                                    placeholder=""
-                                    />
-                                    
-                                    <h4>Alternate Contact Email <span>*</span></h4>
-                                    <input
-                                    placeholder=""
-                                    />
+                                        <h4>Alternate Contact Name </h4>
+                                        <input
+                                        placeholder=""
+                                        />
+                                        
+                                        <h4>Alternate Contact Email </h4>
+                                        <input
+                                        placeholder=""
+                                        />
 
-                                    <h4>GDPR Agreement <span>*</span></h4>
+                                        <h4>GDPR Agreement <span>*</span></h4>
+                                        <div  className='meeting-submit-input-form-checklist'>
+                                            <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={this.state.isGDPRSelected}
+                                                    onChange={this.handleGDPRSelectChange}
+                                                    style={{ marginRight: "10px" }}
+                                                />
+                                                I consent to having this website store my submitted information so they can respond to my inquiry.
+                                            </label>
+                                        </div>
 
                                     </div>
                                 </div>
