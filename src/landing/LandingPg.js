@@ -678,6 +678,8 @@ export default class LandingPage extends Component {
             text: '',
             charCount: 0,
             maxChars: 750,
+            languages: [],
+            selectedLanguage: '',
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1116,11 +1118,104 @@ export default class LandingPage extends Component {
             "Pacific/Wallis",
         ];
 
+        const languages = [
+            "Afrikaans",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bengali",
+            "Bosnian",
+            "Bulgarian",
+            "Burmese",
+            "Catalan",
+            "Chinese",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Finnish",
+            "French",
+            "Georgian",
+            "German",
+            "Greek",
+            "Gujarati",
+            "Haitian Creole",
+            "Hausa",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Indonesian",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Kannada",
+            "Kazakh",
+            "Khmer",
+            "Korean",
+            "Kurdish",
+            "Kyrgyz",
+            "Lao",
+            "Latvian",
+            "Lithuanian",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Māori",
+            "Marathi",
+            "Mongolian",
+            "Nepali",
+            "Norwegian",
+            "Pashto",
+            "Persian",
+            "Polish",
+            "Portuguese",
+            "Punjabi",
+            "Romanian",
+            "Russian",
+            "Samoan",
+            "Scottish Gaelic",
+            "Serbian",
+            "Sesotho",
+            "Sinhala",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Swahili",
+            "Swedish",
+            "Tagalog",
+            "Tamil",
+            "Telugu",
+            "Thai",
+            "Turkish",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu"
+        ];
+
         const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
         this.setState({
             timezones,
-            selectedTimezone: userTimezone
+            selectedTimezone: userTimezone,
+            languages, // Populate the dropdown with all available languages
+            selectedLanguage: "English", // Set "English" as the default selected language
         });
 
         this.fetchData();
@@ -1364,13 +1459,13 @@ export default class LandingPage extends Component {
 
     //! - - TIME ZONE FUNCTIONS - - !//
 
-    handleChange = (event) => {
+    handleTimezoneChange = (event) => {
         this.setState({ selectedTimezone: event.target.value });
     };
 
     //! - - ADD MEETING FUNCTIONS - - !//
 
-    handleChange = (event) => {
+    handleGroupNotesTextareaChange = (event) => {
         const text = event.target.value;
         if (text.length <= this.state.maxChars) {
             this.setState({
@@ -1380,10 +1475,17 @@ export default class LandingPage extends Component {
         }
     };
 
+    handleLanguageSelectChange = (event) => {
+        this.setState({ selectedLanguage: event.target.value });
+    }
+
+
+
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
         const { timezones, selectedTimezone } = this.state;
+        const { languages, selectedLanguage } = this.state;
 
         return (
             <Styles>
@@ -1440,7 +1542,7 @@ export default class LandingPage extends Component {
                                                     <select
                                                     id="timezoneDropdown"
                                                     value={selectedTimezone}
-                                                    onChange={this.handleChange}
+                                                    onChange={this.handleTimezoneChange}
                                                     >
                                                     {timezones.map((timezone) => (
                                                         <option key={timezone} value={timezone}>
@@ -1502,7 +1604,7 @@ export default class LandingPage extends Component {
                                         <h4>Group Notes <span>*</span></h4>
                                         <textarea
                                         value={this.state.text}
-                                        onChange={this.handleChange}
+                                        onChange={this.handleGroupNotesTextareaChange}
                                         placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
                                         <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
@@ -1530,17 +1632,17 @@ export default class LandingPage extends Component {
                                         <h4>Language <span>*</span></h4>
                                         <div className='language-container'>
                                             <div className='language-container-img'>
-                                                <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="language-icon" />
+                                                <img src="/assets/icons/language-icon.png" alt="Clock Icon" className="language-icon" />
                                             </div>
                                             <div className="select-wrapper">
                                                 <select
                                                 id="languageDropdown"
-                                                value={selectedTimezone}
-                                                onChange={this.handleChange}
+                                                value={selectedLanguage}
+                                                onChange={this.handleLanguageSelectChange}
                                                 >
-                                                {timezones.map((timezone) => (
-                                                    <option key={timezone} value={timezone}>
-                                                    {timezone}
+                                                {languages.map((language) => (
+                                                    <option key={language} value={language}>
+                                                    {language}
                                                     </option>
                                                 ))}
                                                 </select>
