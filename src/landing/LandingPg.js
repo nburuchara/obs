@@ -421,7 +421,6 @@ const Styles = styled.div  `
 
     // - - MEETING TIME ZONE SELECTOR - - //
 
-
 .timezone-container {
     display: flex;
     justify-content: space-between;
@@ -535,6 +534,61 @@ const Styles = styled.div  `
 .meeting-submit-input-form-page-1 p {
     font-size: 80%;
     margin-top: 5px;
+}
+
+    // - LANGUAGE SELECTOR - //
+
+    // - - MEETING TIME ZONE SELECTOR - - //
+
+.language-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 60%;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.language-container-img {
+    width: 13%;
+    display: flex; /* Use flexbox to center the clock icon */
+    justify-content: center; /* Horizontally center the clock icon */
+    align-items: center; /* Vertically center the clock icon */
+}
+
+.select-wrapper {
+    position: relative;
+    width: 87%; /* Matches the select element's width */
+    margin-top: 0px;
+    // border: 1px solid black;
+    text-align: right;
+}
+
+.language-icon {
+    width: 16px; /* Size of the clock icon */
+    height: 16px; /* Size of the clock icon */
+    pointer-events: none; /* Prevent the icon from interfering with user interaction */
+}
+
+#languageDropdown {
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    padding-left: 0px;
+    font-size: 16px;
+    z-index: 1;
+    border: 0px solid #ccc;
+    border-radius: 5px;
+    padding-right: 20px; /* Add padding to the right */
+    appearance: none; /* Remove default browser styling for the arrow */
+    -webkit-appearance: none; /* Remove WebKit styling */
+    -moz-appearance: none; /* Remove Firefox styling */
+    background-image: url('/assets/icons/dropdown-down-arrow.png'); /* Optional: Add a custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; /* Adjust arrow position */
+    background-size: 10px; /* Adjust the size of the arrow */
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -1474,13 +1528,13 @@ export default class LandingPage extends Component {
                                         />
 
                                         <h4>Language <span>*</span></h4>
-                                        <div className='timezone-container'>
-                                            <div className='timezone-container-img'>
-                                                <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="clock-icon" />
+                                        <div className='language-container'>
+                                            <div className='language-container-img'>
+                                                <img src="/assets/icons/clock-icon.png" alt="Clock Icon" className="language-icon" />
                                             </div>
                                             <div className="select-wrapper">
                                                 <select
-                                                id="timezoneDropdown"
+                                                id="languageDropdown"
                                                 value={selectedTimezone}
                                                 onChange={this.handleChange}
                                                 >
