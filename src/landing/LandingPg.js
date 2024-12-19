@@ -1533,6 +1533,14 @@ export default class LandingPage extends Component {
         });
     };
 
+    handleMeetingGuidelinesAcceptChange = () => {
+        this.setState((prevState) => ({
+            meetingGuidelineAccepted: !prevState.meetingGuidelineAccepted, // Toggle the checkbox state
+        }), () => {
+            console.log(`Meeting Guideline Checkbox is ${this.state.meetingGuidelineAccepted ? "checked" : "unchecked"}`);
+        });
+    };
+
     render () {
 
         const { searchBarIsClicked, searchInput, isSearchLoading, resultsFound, groupedOptions } = this.state;
@@ -1773,6 +1781,19 @@ export default class LandingPage extends Component {
                                                     style={{ marginRight: "10px" }}
                                                 />
                                                 I consent to having this website store my submitted information so they can respond to my inquiry.
+                                            </label>
+                                        </div>
+
+                                        <h4>Meeting Guideline Agreement <span>*</span></h4>
+                                        <div  className='meeting-submit-input-form-checklist'>
+                                            <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={this.state.meetingGuidelineAccepted}
+                                                    onChange={this.handleMeetingGuidelinesAcceptChange}
+                                                    style={{ marginRight: "10px" }}
+                                                />
+                                                I have read and agree to the meeting guidelines below.
                                             </label>
                                         </div>
 
