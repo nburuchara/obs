@@ -615,6 +615,7 @@ const Styles = styled.div  `
     resize: none;
     font-size: 80%;
     font-family: Arial, sans-serif;
+    padding: 1.5%;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -1809,7 +1810,7 @@ export default class LandingPage extends Component {
                                         </div>
                                         <div className='meeting-submit-input-form-terms'>
                                             <textarea>
-                                                <p></p>
+                                                
                                             </textarea>
                                         </div>
                                     </div>
