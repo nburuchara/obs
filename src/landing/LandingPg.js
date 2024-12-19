@@ -482,6 +482,7 @@ const Styles = styled.div  `
     padding-left: 1.5%;
     padding-right: 1.5%;
     overflow: auto;
+    border-right: 1px solid #ccc;
 }
 
 .meeting-submit-confirm {
@@ -500,6 +501,7 @@ const Styles = styled.div  `
     // bottom: 0;
     // width: 100%;
     // height: 81%;
+    padding-bottom: 5%;
 }
 
 .meeting-submit-input-form-page-1 h4 {
@@ -1621,7 +1623,7 @@ export default class LandingPage extends Component {
 
                                         <h4>Meeting Phone Number</h4>
                                         <input
-                                        placeholder="e.g. +1(507)321-1234"
+                                        placeholder="e.g. +1(507) 321-1234"
                                         />
                                         '
                                         <h4>Other Meeting Formats or Access Codes (e.g. chat, email groups, etc)</h4>
@@ -1649,10 +1651,21 @@ export default class LandingPage extends Component {
                                             </div>
                                         </div>
 
+
+                                        <h4>Your Meeting Time Zone <span>*</span></h4>
+                                        <input
+                                        placeholder="e.g. CAT (Central African Time)"
+                                        />
+
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
                                     <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box.</p>
+
+                                    <div className='meeting-submit-input-form-page-1'>
+
+
+                                    </div>
                                 </div>
                             </div>
                         }
