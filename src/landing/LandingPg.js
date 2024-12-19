@@ -691,13 +691,15 @@ export default class LandingPage extends Component {
             input: "", // Stores textarea input
 
             //* - ADD MEETING COMPONENTS - *//
-            text: '',
-            charCount: 0,
+            groupNotesText: '',
+            groupNotesCharCount: 0,
             maxChars: 750,
             languages: [],
             selectedLanguage: '',
             weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             selectedDays: [], // Array to hold selected days
+            meetingTimesText: '',
+            meetingTimesCharCount: 0,
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1486,8 +1488,8 @@ export default class LandingPage extends Component {
         const text = event.target.value;
         if (text.length <= this.state.maxChars) {
             this.setState({
-              text: text,
-              charCount: text.length, // Update the character count
+              groupNotesText: text,
+              groupNotesCharCount: text.length, // Update the character count
             });
         }
     };
@@ -1512,6 +1514,16 @@ export default class LandingPage extends Component {
             }
         });
         console.log(this.state.selectedDays)
+    };
+
+    handleMeetingTimesTextareaChange = (event) => {
+        const text = event.target.value;
+        if (text.length <= this.state.maxChars) {
+            this.setState({
+                meetingTimesText: text,
+                meetingTimesCharCount: text.length, // Update the character count
+            });
+        }
     };
 
     render () {
@@ -1636,11 +1648,11 @@ export default class LandingPage extends Component {
 
                                         <h4>Group Notes <span>*</span></h4>
                                         <textarea
-                                        value={this.state.text}
+                                        value={this.state.groupNotesText}
                                         onChange={this.handleGroupNotesTextareaChange}
                                         placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
-                                        <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
+                                        <p>Max. 750 characters <label>({this.state.groupNotesCharCount}/{this.state.maxChars})</label></p>
 
                                         <h4>Online Meeting Link <span>*</span></h4>
                                         <input
@@ -1713,7 +1725,7 @@ export default class LandingPage extends Component {
                                         onChange={this.handleGroupNotesTextareaChange}
                                         placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
-                                        <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
+                                        <p>Max. 750 characters <label>({this.state.meetingTimesCharCount}/{this.state.maxChars})</label></p>
 
                                     </div>
                                 </div>
