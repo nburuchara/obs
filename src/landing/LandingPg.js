@@ -1663,7 +1663,7 @@ export default class LandingPage extends Component {
                         {this.state.showAddMeeting && 
                             <div className='main-section-body'>
                                 <div className='meeting-submit-details'>
-                                    <h2>Meeting Submission Form</h2>
+                                    <h2>Meeting Submission Form (1/2)</h2>
                                     <p>If you have a Bible study group that meets digitally — via phone, chat, video conference, etc — (or you want to create a new one) please share participation information with us, so we can include it in the online directory.</p>
 
                                     <div className='meeting-submit-input-form-page-1'>
@@ -1757,7 +1757,7 @@ export default class LandingPage extends Component {
                                 </div>
                                 <div className='meeting-submit-confirm'>
 
-                                    <h2>Organizer / Chair Information</h2>
+                                    <h2>Organizer / Chair Information (2/2)</h2>
                                     <p>The following is for internal use only and will not appear anywhere publicly on the website. You must provide at least a Primary Contact name and email address. We suggest that you provide an alternate name and email address as well. Periodic update inquiries that go unanswered for 7 days will cause your entry to be deactivated. After 30 days, your entry will be deleted.</p>
 
                                     <div className='meeting-submit-input-form-page-1'>
