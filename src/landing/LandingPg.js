@@ -533,6 +533,7 @@ const Styles = styled.div  `
 
 .meeting-submit-input-form-page-1 p {
     font-size: 80%;
+    margin-top: 5px;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -1450,6 +1451,11 @@ export default class LandingPage extends Component {
                                         placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
                                         <p>Max. 750 characters <label>({this.state.charCount}/{this.state.maxChars})</label></p>
+
+                                        <h4>Online Meeting Link <span>*</span></h4>
+                                        <input
+                                        placeholder="e.g. Zoom, Google Meets"
+                                        />
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
