@@ -1313,8 +1313,6 @@ export default class LandingPage extends Component {
     }
 
     handleSearchChange = (e) => {
-        const { searchFilterTitle, searchFilterSelected, menuOption1, menuOption2, menuOption3, menuOption4 } = this.state; 
-        let { currentSectionSearching } = this.state;
 
         this.setState({
             searchBarInput: e.target.value,
