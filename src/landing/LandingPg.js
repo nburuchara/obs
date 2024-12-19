@@ -61,7 +61,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    // color: white;
+    color: white;
 }
 
 .header-details-container-left button {
@@ -1728,7 +1728,9 @@ export default class LandingPage extends Component {
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
-                                    <p>This is a longer text to see if it will stretch out the text box. This is a longer text to see if it will stretch out the text box.</p>
+
+                                    <h2>Organizer / Chair Information</h2>
+                                    <p>The following is for internal use only and will not appear anywhere publicly on the website. You must provide at least a Primary Contact name and email address. We suggest that you provide an alternate name and email address as well. Periodic update inquiries that go unanswered for 7 days will cause your entry to be deactivated. After 30 days, your entry will be deleted.</p>
 
                                     <div className='meeting-submit-input-form-page-1'>
 
