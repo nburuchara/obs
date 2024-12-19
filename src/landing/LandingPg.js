@@ -482,6 +482,7 @@ const Styles = styled.div  `
     border-top: 1px solid #ccc;
     padding-left: 1.5%;
     padding-right: 1.5%;
+    overflow: auto;
 }
 
 .meeting-submit-confirm {
@@ -1456,6 +1457,18 @@ export default class LandingPage extends Component {
                                         <input
                                         placeholder="e.g. Zoom, Google Meets"
                                         />
+
+                                        <h4>Zoom Participant Passcode</h4>
+                                        <input
+                                        placeholder="e.g. 123456"
+                                        />
+
+                                        <h4>Meeting Phone Number</h4>
+                                        <input
+                                        placeholder="e.g. +1(507)-321-1234"
+                                        />
+
+
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
