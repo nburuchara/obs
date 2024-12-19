@@ -1734,6 +1734,28 @@ export default class LandingPage extends Component {
 
                                     <div className='meeting-submit-input-form-page-1'>
 
+                                    <h4>Primary Contact Name <span>*</span></h4>
+                                    <input
+                                    placeholder=""
+                                    />
+                                    
+                                    <h4>Primary Contact Email <span>*</span></h4>
+                                    <input
+                                    placeholder=""
+                                    />
+
+                                    <h4>Alternate Contact Name <span>*</span></h4>
+                                    <input
+                                    placeholder=""
+                                    />
+                                    
+                                    <h4>Alternate Contact Email <span>*</span></h4>
+                                    <input
+                                    placeholder=""
+                                    />
+
+                                    <h4>GDPR Agreement <span>*</span></h4>
+
                                     </div>
                                 </div>
                             </div>
