@@ -593,6 +593,10 @@ const Styles = styled.div  `
     background-size: 10px; /* Adjust the size of the arrow */
 }
 
+.meeting-submit-input-form-checklist {
+    
+}
+
     // - - CSS TRANSITIONS / ANIMATIONS - - //
 
 .carousel-container-all-meetings,
@@ -682,6 +686,8 @@ export default class LandingPage extends Component {
             maxChars: 750,
             languages: [],
             selectedLanguage: '',
+            weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            selectedDays: [], // Array to hold selected days
         }
             //* - TRIE NODE (for search functionality) - *//
         this.trie = new Trie(); // Initialize the trie
@@ -1458,7 +1464,6 @@ export default class LandingPage extends Component {
         )
     }
 
-
     //! - - TIME ZONE FUNCTIONS - - !//
 
     handleTimezoneChange = (event) => {
@@ -1481,7 +1486,22 @@ export default class LandingPage extends Component {
         this.setState({ selectedLanguage: event.target.value });
     }
 
-
+    handleCheckboxChange = (day) => {
+        this.setState((prevState) => {
+            const isSelected = prevState.selectedDays.includes(day);
+            if (isSelected) {
+                // Remove day if it's already selected
+                return {
+                    selectedDays: prevState.selectedDays.filter((item) => item !== day),
+                };
+            } else {
+                // Add day to the selected list
+                return {
+                    selectedDays: [...prevState.selectedDays, day],
+                };
+            }
+        });
+    };
 
     render () {
 
@@ -1657,6 +1677,23 @@ export default class LandingPage extends Component {
                                         placeholder="e.g. CAT (Central African Time)"
                                         />
 
+                                        <div className='meeting-submit-input-form-checklist'>
+                                            <ul style={{ listStyleType: "none", padding: 0 }}>
+                                                {this.state.weekdays.map((day) => (
+                                                    <li key={day} style={{ marginBottom: "5px" }}>
+                                                        <label>
+                                                            <input
+                                                                type="checkbox"
+                                                                value={day}
+                                                                checked={this.state.selectedDays.includes(day)}
+                                                                onChange={() => this.handleCheckboxChange(day)}
+                                                            />
+                                                            {day}
+                                                        </label>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className='meeting-submit-confirm'>
