@@ -594,7 +594,17 @@ const Styles = styled.div  `
 }
 
 .meeting-submit-input-form-checklist {
-    
+    text-align: left;
+}
+
+.meeting-submit-input-form-checklist input[type="checkbox"] {
+    // all: unset;
+    width: 10%;
+}
+
+.meeting-submit-input-form-checklist li {
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
     // - - CSS TRANSITIONS / ANIMATIONS - - //
@@ -1677,6 +1687,7 @@ export default class LandingPage extends Component {
                                         placeholder="e.g. CAT (Central African Time)"
                                         />
 
+                                        <h4>Meeting Day(s) <span>*</span></h4>
                                         <div className='meeting-submit-input-form-checklist'>
                                             <ul style={{ listStyleType: "none", padding: 0 }}>
                                                 {this.state.weekdays.map((day) => (
