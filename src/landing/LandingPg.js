@@ -1722,7 +1722,7 @@ export default class LandingPage extends Component {
                                         <h4>Meeting Start Time(s) in Your Submitted Time Zone <span>*</span></h4>
                                         <textarea
                                         value={this.state.text}
-                                        onChange={this.handleGroupNotesTextareaChange}
+                                        onChange={this.handleMeetingTimesTextareaChange}
                                         placeholder="General overview of the meeting: e.g. This is a bible study group just for men - we delve into the word of God and share openly how we're getting on & how God is working in our lives. We meet on Wednesday evenings at 7:30pm (EAT - East African Time) - all men feel welcome to join!"
                                         />
                                         <p>Max. 750 characters <label>({this.state.meetingTimesCharCount}/{this.state.maxChars})</label></p>
