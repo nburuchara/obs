@@ -493,6 +493,22 @@ const Styles = styled.div  `
     padding-right: 1.5%;
 }
 
+.meeting-submit-confirm button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-top: 10px;
+    padding: 1.25%;
+    width: 20%;
+    border: 1px solid #4497f1;
+    border-radius: 5px;
+    background-color: #4497f1;
+    color: white;
+    font-weight: bold;
+    font-size: 95%;
+    cursor: pointer;
+}
+
     // - SUBMIT FORM - //
 
 .meeting-submit-input-form-page-1 {
@@ -502,6 +518,7 @@ const Styles = styled.div  `
     // width: 100%;
     // height: 81%;
     padding-bottom: 5%;
+    position: relative;
 }
 
 .meeting-submit-input-form-page-1 h4 {
@@ -537,8 +554,6 @@ const Styles = styled.div  `
     font-size: 80%;
     margin-top: 5px;
 }
-
-    // - LANGUAGE SELECTOR - //
 
     // - - MEETING TIME ZONE SELECTOR - - //
 
@@ -612,6 +627,7 @@ const Styles = styled.div  `
 .meeting-submit-input-form-terms textarea {
     width: 90%;
     margin-top: 20px;
+    margin-bottom: 18.5px;
     resize: none;
     font-size: 80%;
     font-family: Arial, sans-serif;
@@ -1790,20 +1806,20 @@ export default class LandingPage extends Component {
                                                     type="checkbox"
                                                     checked={this.state.isGDPRSelected}
                                                     onChange={this.handleGDPRSelectChange}
-                                                    style={{ marginRight: "10px" }}
+                                                    style={{ marginRight: "5px" }}
                                                 />
                                                 I consent to having this website store my submitted information so they can respond to my inquiry.
                                             </label>
                                         </div>
 
                                         <h4>Meeting Guideline Agreement <span>*</span></h4>
-                                        <div  className='meeting-submit-input-form-checklist'>
+                                        <div className='meeting-submit-input-form-checklist'>
                                             <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
                                                 <input
                                                     type="checkbox"
                                                     checked={this.state.meetingGuidelineAccepted}
                                                     onChange={this.handleMeetingGuidelinesAcceptChange}
-                                                    style={{ marginRight: "10px" }}
+                                                    style={{ marginRight: "0px",  marginLeft:  "0px" }}
                                                 />
                                                 I have read and agree to the meeting guidelines below.
                                             </label>
@@ -1813,6 +1829,8 @@ export default class LandingPage extends Component {
                                                 
                                             </textarea>
                                         </div>
+
+                                        <button>Submit</button>
                                     </div>
                                 </div>
                             </div>
