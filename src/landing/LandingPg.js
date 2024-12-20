@@ -491,6 +491,7 @@ const Styles = styled.div  `
     border-top: 1px solid #ccc;
     padding-left: 1.5%;
     padding-right: 1.5%;
+    overflow: auto;
 }
 
 .meeting-submit-confirm button {
