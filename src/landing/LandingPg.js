@@ -1826,8 +1826,11 @@ export default class LandingPage extends Component {
                                             </label>
                                         </div>
                                         <div className='meeting-submit-input-form-terms'>
-                                            <textarea>
-                                                
+                                            <textarea
+                                            value={`Terms of Service \n\nAny Bible study group or meeting may be listed in our Directory provided it adheres to the guidelines outlined below. Group submissions will be reviewed to ensure alignment with our mission and policies.\n\nTo ensure consistency and alignment with Christian teachings, we encourage groups to consider the following: \n\n
+                                            `}
+                                            >
+                                            
                                             </textarea>
                                         </div>
 
