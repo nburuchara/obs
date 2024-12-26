@@ -61,7 +61,7 @@ const Styles = styled.div  `
     font-size: 250%;
     margin-top: 1%;
     // font-family: palatino;
-    color: white;
+    // color: white;
 }
 
 .header-details-container-left button {
@@ -1512,6 +1512,12 @@ export default class LandingPage extends Component {
 
     //! - - ADD MEETING FUNCTIONS - - !//
 
+    handleTextInputChange = (event) => {
+        this.setState({
+            [event.target.id] : event.target.value,
+        })
+    }
+
     handleGroupNotesTextareaChange = (event) => {
         const text = event.target.value;
         if (text.length <= this.state.maxChars) {
@@ -1700,21 +1706,33 @@ export default class LandingPage extends Component {
 
                                         <h4>Online Meeting Link <span>*</span></h4>
                                         <input
+                                        id='onlineMeetingLink'
+                                        value={this.state.onlineMeetingLink}
+                                        onChange={this.handleInputChange}
                                         placeholder="e.g. Zoom, Google Meets"
                                         />
 
                                         <h4>Zoom Participant Passcode</h4>
                                         <input
+                                        id='zoomParticipantPasscode'
+                                        value={this.state.zoomParticipantPasscode}
+                                        onChange={this.handleInputChange}
                                         placeholder="e.g. 123456"
                                         />
 
                                         <h4>Meeting Phone Number</h4>
                                         <input
+                                        id='meetingPhoneNumber'
+                                        value={this.state.meetingPhoneNumber}
+                                        onChange={this.handleInputChange}
                                         placeholder="e.g. +1(507) 321-1234"
                                         />
                                         
                                         <h4>Other Meeting Formats or Access Codes (e.g. chat, email groups, etc)</h4>
                                         <input
+                                        id='otherFormatsOrCodes'
+                                        value={this.state.otherFormatsOrCodes}
+                                        onChange={this.handleInputChange}
                                         placeholder=""
                                         />
 
@@ -1741,6 +1759,9 @@ export default class LandingPage extends Component {
 
                                         <h4>Your Meeting Time Zone <span>*</span></h4>
                                         <input
+                                        id='meetingTimeZone'
+                                        value={this.state.meetingTimeZone}
+                                        onChange={this.handleInputChange}
                                         placeholder="e.g. CAT (Central African Time)"
                                         />
 
@@ -1782,21 +1803,33 @@ export default class LandingPage extends Component {
 
                                         <h4>Primary Contact Name <span>*</span></h4>
                                         <input
+                                        id='primaryContactName'
+                                        value={this.state.primaryContactName}
+                                        onChange={this.handleInputChange}
                                         placeholder=""
                                         />
                                         
                                         <h4>Primary Contact Email <span>*</span></h4>
                                         <input
+                                        id='primaryContactEmail'
+                                        value={this.state.primaryContactEmail}
+                                        onChange={this.handleInputChange}
                                         placeholder=""
                                         />
 
                                         <h4>Alternate Contact Name </h4>
                                         <input
+                                        id='alternateContactName'
+                                        value={this.state.alternateContactName}
+                                        onChange={this.handleInputChange}
                                         placeholder=""
                                         />
                                         
                                         <h4>Alternate Contact Email </h4>
                                         <input
+                                        id='alternateContactEmail'
+                                        value={this.state.alternateContactEmail}
+                                        onChange={this.handleInputChange}
                                         placeholder=""
                                         />
 
