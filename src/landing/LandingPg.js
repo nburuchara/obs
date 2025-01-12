@@ -699,8 +699,8 @@ export default class LandingPage extends Component {
         this.state = {
 
             //* - MAIN BODY COMPONENTS - *//
-            showMeetingList: false,
-            showAddMeeting: true,
+            showMeetingList: true,
+            showAddMeeting: false,
 
             //* - SINGLE MEETING COMPONENTS - *//
             isExpanded: false,
