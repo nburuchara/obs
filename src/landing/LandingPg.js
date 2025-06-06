@@ -1267,7 +1267,6 @@ export default class LandingPage extends Component {
             languages, // Populate the dropdown with all available languages
             selectedLanguage: "English", // Set "English" as the default selected language
         });
-
         this.fetchData();
 
     }
@@ -1575,6 +1574,8 @@ export default class LandingPage extends Component {
             console.log(`Meeting Guideline Checkbox is ${this.state.meetingGuidelineAccepted ? "checked" : "unchecked"}`);
         });
     };
+
+    
 
     render () {
 
